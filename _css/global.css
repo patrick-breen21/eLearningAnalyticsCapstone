@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
+    font-family: 'Roboto';
 }
 
 body > * {
@@ -35,8 +35,19 @@ nav.sidebar a {
     color: #06497F;
 }
 
-div.content {
+div.status {
+    padding: 1em;
+    text-align: center;
+}
+
+div.status.risk { background: firebrick; }
+div.status.warning { background: gold; }
+div.status.good { background: limegreen; }
+
+div.main {
     width: 70%;
+}
+div.content {
     background: #eee;
     padding: 1em;
     display: flex;
@@ -84,7 +95,6 @@ div.content .title {
     bottom: 0;
     left: 0;
     text-align: center;
-    font-family: 'century gothic';
 }
 
 .tile.home {
@@ -113,8 +123,6 @@ div.content .title {
 	background-size: contain;
 	background-image: url('../_images/askqut-logo.png');
 }
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
   width: 360px;

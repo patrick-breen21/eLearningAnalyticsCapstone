@@ -1,4 +1,5 @@
 <?php
+    
     $users = [
         'n9708707'=> [
             'username' => 'n9708707',
@@ -40,8 +41,11 @@
         $username = false;
         $password == false;
     }
+    
+    if ($dev) $_SESSION['user'] = $users[ 'n9708707' ];
+    
 
-    if ($username && $password){
+    if ($username && $password && !isset($_SESSION['user'])){
         //echo $username . '<br>';
         //echo $password . '<br>';
         //echo $users[ $username ] ;
@@ -69,3 +73,10 @@
         }
     }
 ?>
+
+<?php if (!isset($_SESSION['user'])): ?>
+    <body class='login'>
+        <?include 'loginform.php' ?>
+    </body>
+    <?php die(); ?>
+<?php endif; ?>

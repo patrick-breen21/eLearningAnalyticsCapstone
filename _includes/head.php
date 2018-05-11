@@ -1,7 +1,13 @@
-  <?php
-      $site_url = "http://{$_SERVER['HTTP_HOST']}/capstone/";
-      $root = "{$_SERVER['DOCUMENT_ROOT']}/capstone";
-  ?>
+<?php
+session_start();
+$site_url = "http://{$_SERVER['HTTP_HOST']}/capstone/";
+$root = "{$_SERVER['DOCUMENT_ROOT']}/capstone";
+  
+$dev = false;
+//Start the Session
+?>
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +17,6 @@
     <meta name="description" content="">
 	<meta name="keywords" content="">
     <link rel="SHORTCUT ICON" href="_images/logo.png">
-    <title>Learning Analytics</title>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="_scripts/script.js"></script>
@@ -24,7 +29,7 @@
 
 	<!-- Google Fonts -->
 	<?php
-	$fonts = [];
+	$fonts = ['Roboto'];
 
 	for ($i = 0; $i < count($fonts); $i++):
 	    echo "<link href='http://fonts.googleapis.com/css?family=".$fonts[$i]."' rel='stylesheet' type='text/css'>";
@@ -32,3 +37,9 @@
 	?>
 
   </head>
+  
+<?php
+    //var_dump($_SESSION['user']);
+    if (!isset($_SESSION['user'])) include('login.php');
+    //var_dump($_SESSION['user']);
+?>
