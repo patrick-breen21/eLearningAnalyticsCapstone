@@ -8,7 +8,7 @@
     <?php include '_includes/header.php' ?>
     <?php include '_includes/sidebar.php' ?>
 <div class="content">
-	<div class='title'><h1>Assesment Analytics</h1></div>
+	<div class='title'><h1>Assesment Analytic</h1></div>
 	<div class='chart'></div>
 	<div class='chart'></div>
 	<div class='chart'></div>
