@@ -1,8 +1,8 @@
 <?php
     $statuses = [
-        ['class' => 'risk', 'txt' => 'You are currently at risk.'],
-        ['class' => 'warning', 'txt' => 'You are currently borderline.'],
-        ['class' => 'good', 'txt' => 'You are currently going well.']
+        ['class' => 'risk',     'txt' => 'You are at risk.'],
+        ['class' => 'warning',  'txt' => 'You are borderline.'],
+        ['class' => 'good',     'txt' => 'You are going well.']
     ];
     
     $status = rand(0,count($statuses)-1);
