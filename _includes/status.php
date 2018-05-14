@@ -15,5 +15,6 @@
     
 ?>
 <div class="status <?php echo $statuses[$status]['class']; ?>">
-    <span class='txt'><?php echo $statuses[$status]['txt']; ?> (<?= $percentage ?>)</span>
+    <div class='signal-chart'><?= $percentage ?></div>
+    <div class='txt'><?php echo $statuses[$status]['txt']; ?></div>
 </div>

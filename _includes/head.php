@@ -17,10 +17,10 @@ $dev = false;
     <meta name="description" content="">
 	<meta name="keywords" content="">
     <link rel="SHORTCUT ICON" href="_images/logo.png">
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="_scripts/script.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" 													href="_css/global.css"/><!-- global.css -->
 	<link rel="stylesheet" media="(min-width: 0px) and (max-width: 640px)" href="_css/small.css" /><!-- small.css -->

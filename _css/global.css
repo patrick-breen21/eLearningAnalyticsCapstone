@@ -38,11 +38,12 @@ nav.sidebar a {
 div.status {
     padding: 1em;
     text-align: center;
+    color: #fff;
 }
 
-div.status.risk { background: firebrick; }
-div.status.warning { background: gold; }
-div.status.good { background: limegreen; }
+div.status.risk { background: darkred; }
+div.status.warning { background: goldenrod; }
+div.status.good { background: forestgreen; }
 
 div.main {
     width: 70%;
