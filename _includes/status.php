@@ -1,5 +1,5 @@
 <?php
-    include 'LLGET.php';
+
     $ID = InsertRiskStatement(rand(0, 100));
     $percentage = GetRiskPercentage($ID);
     
