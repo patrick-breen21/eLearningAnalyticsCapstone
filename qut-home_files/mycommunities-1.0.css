@@ -1,0 +1,96 @@
+/* css for html within dropdown */
+#community-dropdown span.mycom-heading {
+    color: #004a94;
+    line-height: 20px;
+    font-size: 18px;
+    display: block;
+    font-weight: 600;
+}
+
+#community-dropdown h3 {
+    border-bottom: 1px solid #034881;
+    color: #034881;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+#community-dropdown h3 .close {
+    font-size: 24px;
+    line-height: 0.7;
+    padding-bottom: 8px;
+}
+#community-dropdown .community-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 20px;
+}
+#community-dropdown .community-menu {
+    float: left;
+    margin: 0;
+    min-width: 250px;
+    padding: 0;
+    white-space: nowrap;
+	width: 100%;
+	box-sizing: border-box;
+}
+#community-dropdown .community-menu li {
+    float: left;
+    margin: 0;
+    min-width: 300px;
+    padding-bottom: 0;
+    width: 50%;
+	box-sizing: border-box;
+}
+#community-dropdown .community-menu li:nth-child(2n) {
+    /*border-left: 1px dotted #ccc;*/
+}
+#community-dropdown .community-menu li a,
+#community-dropdown .community-menu li.active-com .active-com-name {
+    background: none!important;
+    border-bottom: medium none;
+    color: #004379;
+    clear: both;
+    display: block;
+    font-weight: 400;
+    padding: 14px!important;
+    text-align: left;
+	box-sizing: border-box;
+}
+#community-dropdown .community-menu li a:hover,
+#community-dropdown .community-menu li.active-com:hover {
+    background-color: #ecf2f8;
+    color: #047;
+}
+#community-dropdown .community-menu li.active-com .active-com-name,
+#community-dropdown .community-menu li.active-com .active-com-name:hover {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+}
+#community-dropdown .community-menu li.active-com .active-com-name span,
+#community-dropdown .community-menu li.active-com .active-com-name:hover span {
+    font-weight: normal;
+}
+#community-dropdown .all-communities {
+    border-top: 1px solid #c7c7c7;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 0;
+}
+#community-dropdown .all-communities a,
+#community-dropdown .all-communities a:hover {
+    text-decoration: none;
+}
+#community-dropdown .all-communities a:before {
+    content: "\f0c0";
+    font-family: FontAwesome;
+    color: #666;
+    padding-right: 5px;
+}
+#community-dropdown .all-communities a:hover span {
+    text-decoration: underline;
+}
+

@@ -1,5 +1,6 @@
 <?
-include 'LLGET.php';
+include_once 'LLGET.php';
+include_once 'LL_functions.php';
 
 function csvget($filename)
 {
@@ -18,7 +19,6 @@ function csvget($filename)
     }
 
     //make sure LL_functions.php is in same folder as this file.
-    include 'LL_functions.php';
 
     //parse csv into an array
     // array str_getcsv ( string $input [, string $delimiter = "," [, string $enclosure = '"' [, string $escape = "\\" ]]] )
@@ -26,7 +26,7 @@ function csvget($filename)
 
     //get the name of the first student in the csv file - we're only storing their results
     $hash = $csv[1][0];
-    echo $hash;
+    //echo $hash;
 
     //run
     loadOneUsersEchoTimes($hash);
@@ -70,7 +70,6 @@ function parseCSV($csv, $headings = null)
         do {
             if (!$headings) {
                 $headings = $data;
-                var_dump($headings);
                 continue;
             }
 
@@ -89,4 +88,21 @@ function parseCSV($csv, $headings = null)
         return $output;
     }
     return null;
+}
+
+function displayData($data) {
+    echo "<table class='datatable'>";
+    echo "<tr>";
+    foreach ($data[0] as $heading => $value) {
+        echo "<td>$heading</td>";
+    }
+    echo "</tr>";
+    foreach ($data as $row) {
+        echo "<tr>";
+        foreach ($row as $heading => $value) {
+            echo "<td>$value</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
 }

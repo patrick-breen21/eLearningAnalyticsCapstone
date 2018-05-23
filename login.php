@@ -1,82 +1,39 @@
-<?php
+<html class="gr__cms-edit_qut_edu_au">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    $users = [
-        'n9708707'=> [
-            'username' => 'n9708707',
-            'email' => 'kiara.davison@connect.qut.edu.au',
-            'firstname' => 'Kiara',
-            'lastname' => 'Davison',
-            'password' => password_hash("kiara", PASSWORD_DEFAULT)
-        ],
-        
-        'n9441638'=> [
-            'username' => 'n9441638',
-            'email' => 'george.walkerfitzgerald@connect.qut.edu.au',
-            'firstname' => 'George',
-            'lastname' => 'Fitzgerald',
-            'password' => password_hash("george", PASSWORD_DEFAULT)
-        ],
-        
-        'n9820132'=> [
-            'username' => 'n9820132',
-            'email' => 'b.giles@connect.qut.edu.au',
-            'firstname' => 'Ben',
-            'lastname' => 'Giles',
-            'password' => password_hash("ben", PASSWORD_DEFAULT)
-        ],
-        
-        'n9726306'=> [
-            'username' => 'n9726306',
-            'email' => 'patrick.breen@connect.qut.edu.au',
-            'firstname' => 'Patrick',
-            'lastname' => 'Breen',
-            'password' => password_hash("patrick", PASSWORD_DEFAULT)
-        ]
-    ];
-    
-    if(isset($_POST) & !empty($_POST)){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-    } else {
-        $username = false;
-        $password == false;
-    }
-    
-    if ($dev) $_SESSION['user'] = $users[ 'n9708707' ];
-    
+    <title>Login - QUT eLearning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cms-edit.qut.edu.au/__lib/web/images/icons/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="./_css/login_styles.css">
+</head>
 
-    if ($username && $password && !isset($_SESSION['user'])){
-        //echo $username . '<br>';
-        //echo $password . '<br>';
-        //echo $users[ $username ] ;
-        //3.1.1 Assigning posted values to variables.
-        
-        //3.1.2 Checking the values are existing in the database or not
-        //$query = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
-         
-        //$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-        //$count = mysqli_num_rows($result);
-        //3.1.2 If the posted values are equal to the database values, then session will be created for the user.
-        if ($users[ $username ]){
-            if (password_verify( $password , $users[ $username ]['password'] )) {
-                $_SESSION['user'] = $users[ $username ];
-                //var_dump($_SESSION['user']);
-                //echo isset($_SESSION['user']);
-            } else {
-                $error = "Username and Password do not match";
-                //echo "Username and Password do not match";
-            }
-        }else {
-            //3.1.3 If the login credentials doesn't match, he will be shown with an error message.
-            $error = "Invalid Username";
-            //echo "Invalid Username";
-        }
-    }
-?>
+  <body class="login-design" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
 
-<?php if (!isset($_SESSION['user'])): ?>
-    <body class='login'>
-        <?include 'loginform.php' ?>
-    </body>
-    <?php die(); ?>
-<?php endif; ?>
+            <form action="index.php" id="login_form_login_prompt" method="post" class="<?php if ($error) echo 'error'?>">
+          
+        <div class="login-logo"><img src="./_images/qut-login.png" alt="QUT Logo"></div>
+
+        <p class="login-message">You need to login before you can access this page.</p>
+        <p class="login-message error"><!--?= $error ?--></p>
+        <div id="message" class="message" style="display: none;">
+                  </div>
+
+        <div class="credentials-section">
+          <div class="field-wrapper">
+            <label for="SQ_LOGIN_USERNAME">Username</label> 
+            
+            <input type="text" name="username" value="" size="10" onfocus="this.select();" class="data" required="required" autofocus="autofocus" id="SQ_LOGIN_USERNAME">
+          </div>
+          <div class="field-wrapper">
+            <label for="SQ_LOGIN_PASSWORD">Password</label> 
+            <input type="password" name="password" value="" size="10" onfocus="this.select();" class="data" required="required" autocomplete="off" id="SQ_LOGIN_PASSWORD">
+          </div>
+        </div>
+
+        <div class="commit-section">
+          <input type="submit" name="log_in_out_button" value="Login" class="data" id="log_in_out_button">
+        </div>
+
+        
+          </form>
+</body></html>

@@ -1,54 +1,42 @@
-* {
-    padding: 0;
-    margin: 0;
+#header span.position {
+    display: none;
 }
 
-body {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-family: 'Roboto';
+div.column-container {
+	text-align: center;
 }
 
-body > * {
-    box-sizing: border-box;
-}
-
-header {
-    background: #06497F;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100vw;
-}
-
-nav.sidebar {
-    width: 30%;
-    min-height: 50vh;
-    background: #ccc;
-    text-align: center;
-}
-
-nav.sidebar a {
-    margin: 3em auto;
-    display: block;
-    color: #06497F;
-}
-
-div.status {
-    padding: 1em;
-    text-align: center;
+body.Student div#banner .logo a {
+    background: transparent url(../_images/qut-login.png) no-repeat 0 0;
+    font-size: 20px;
+    text-indent: 60px;
     color: #fff;
+    line-height: 52px;
 }
 
-div.status.risk { background: darkred; }
-div.status.warning { background: goldenrod; }
-div.status.good { background: forestgreen; }
-
-div.main {
-    width: 70%;
+.slide {
+    background: url(../_images/btn-slide.png) no-repeat 0 0;
 }
-div.content {
+
+#acknowledgement {
+    background: url(../_images/acknowledgement-thumbnail-2016.jpg) no-repeat scroll left 15px rgba(0, 0, 0, 0)!important;
+}
+
+footer div#acknowledgement h3 {
+    margin: 20px 0;
+}
+
+div.elstatus {
+	text-align: center;
+    color: #eee;
+    font-size: 1.1em;
+}
+
+div.elstatus.risk { background: darkred; }
+div.elstatus.warning { background: goldenrod; }
+div.elstatus.good { background: forestgreen; }
+
+div.elcontent {
     background: #eee;
     padding: 1em;
     display: flex;
@@ -57,7 +45,7 @@ div.content {
     justify-content: space-evenly;
 }
 
-div.content > div.chart {
+div.elcontent > div.chart {
 	margin: 1em 5%;
     flex-basis: 40%;
     background: #000;
@@ -69,160 +57,6 @@ iframe.chart {
     height: 500px;
 }
 
-div.content .title {
+div.elcontent .title {
     width: 100%;
-}
-
-.tile {
-    height: 100px;
-    width: 100px;
-    border-radius: 10px;
-    margin: 20px 20px;
-    position: relative;
-    display: inline-block;
-    background: center center no-repeat;
-    background-image: url('../_images/logo.png');
-    background-size: cover;
-    box-shadow: 0px 0px 10px #000;
-}
-
-.tile-txt {
-    color: #000;
-    height: 35px;
-    line-height: 35px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-}
-
-.tile.home {
-	background-image: url('../_images/logo.png');
-}
-
-.tile.elearning {
-	background-size: contain;
-	background-image: url('../_images/estudent-logo.png');
-}
-
-.tile.hiq {
-	background-image: url('../_images/hiq-1.png');
-}
-
-.tile.email {
-	background-color: #fff;
-	background-image: url('../_images/email-logo.png');
-}
-
-.tile.blackboard {
-	background-image: url('../_images/blackboard-logo.png');
-}
-
-.tile.askqut {
-	background-size: contain;
-	background-image: url('../_images/askqut-logo.png');
-}
-
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.login-page.error .form, .login-page.error input {
-    border: firebrick 1px solid;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form button:hover, .form button:active,.form button:focus {
-  background: #43A047;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-  font-family: "Roboto", sans-serif;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-.form .message.error {
-    font-weight: bold;
-    color: firebrick;
-}
-.form .register-form {
-  display: none;
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-
-
-body.login {
-    background: #4CAF50;
 }

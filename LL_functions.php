@@ -14,7 +14,7 @@ $time=60;
 $ID = InsertEchoTimeStatement($name, $time);
  */
 
-echo var_dump(GetEchoTime());
+//echo var_dump(GetEchoTime());
 
 //returns the statement ID to be used in GetRiskPercentage
 function InsertEchoTimeStatement($name, $time)
@@ -67,7 +67,7 @@ function InsertEchoTimeStatement($name, $time)
         $statementIDArr = $matches[0];
         $statementID    = (string) $statementIDArr[0];
         $statementID    = str_replace('"', "", $statementID);
-        echo $statementID;
+        //echo $statementID;
 
         return $statementID;
     }
@@ -80,7 +80,7 @@ function GetEchoTime()
 
     $URL = "http://ec2-13-210-217-192.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements?verb=http://adlnet.gov/expapi/verbs/watchedecho";
 
-    echo var_dump($URL);
+    //echo var_dump($URL);
     //Create query packet to send to LL
     curl_setopt_array($curl, array(
         CURLOPT_URL            => $URL,
@@ -98,7 +98,7 @@ function GetEchoTime()
         ),
     ));
 
-    echo var_dump($curl);
+    //echo var_dump($curl);
     //Send query and save reply
     $response = curl_exec($curl);
     $err      = curl_error($curl);
@@ -111,7 +111,7 @@ function GetEchoTime()
         echo "cURL Error #:" . $err;
     } else {
         //echo var_dump($response);
-        echo "<br>";
+        //echo "<br>";
 
         //Extract percentage as integer from response
         $string = (string) $response;

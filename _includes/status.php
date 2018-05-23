@@ -1,7 +1,6 @@
 <?php
-
-    $ID = InsertRiskStatement(rand(10, 100));
-    $percentage = GetRiskPercentage($ID);
+    $ID = InsertRiskStatement(rand(0, 100));
+    $percentage = rand(10, 99);//GetRiskPercentage($ID);
     
     $statuses = [
         ['class' => 'risk',     'txt' => 'You are at risk.'],
@@ -14,7 +13,7 @@
     else $status = 0;
     
 ?>
-<div class="status <?php echo $statuses[$status]['class']; ?>">
+<div class="elstatus <?php echo $statuses[$status]['class']; ?>">
     <div class='signal-chart'><?= $percentage ?></div>
     <div class='txt'><?php echo $statuses[$status]['txt']; ?></div>
 </div>

@@ -15,13 +15,6 @@ function init(){
 		{ name: '', percent: 100-percent, color: "#ddd"},
 	];
     updateChart(".signal-chart", dataset);
-    alert('here');
-    $('#show-nav-menu').click(showMenu);
-}
-
-function showMenu() {
-	alert('click');
-	$('.wrapper-container').addClass('show-mob-nav');
 }
 
 function getPercent(wrapperClass) {
