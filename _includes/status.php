@@ -1,6 +1,6 @@
 <?php
 
-    $ID = InsertRiskStatement(rand(0, 100));
+    $ID = InsertRiskStatement(rand(10, 100));
     $percentage = GetRiskPercentage($ID);
     
     $statuses = [
