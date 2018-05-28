@@ -25,8 +25,8 @@
                                                 $hashes = array_unique(array_column($data, 'hash'));
                                                 foreach ($hashes as $hash) {
                                                     echo('<pre>');
-                                                    echo $hash;
-                                                    //loadSingleUserData($hash, 'Echo Duration (Minutes)', $data);
+                                                    //echo $hash;
+                                                    loadSingleUserData($hash, 'Echo Duration (Minutes)', $data);
                                                     echo('</pre>');
                                                 }
                                             }

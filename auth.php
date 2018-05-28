@@ -1,8 +1,27 @@
 <?php
+
+    $hashes = [
+        '872b7d573c52a73896be9c0ea6bdc6b3',
+        '54d001105729d32c90e5ce47012df6ca',
+        'ae595039b3670d1c67faa074b0aa05fc',
+        '362b08cbef18e826ea663d30b5d04d40',
+        '6356be2af8942824196216aee572c073',
+        '6681bb0816a7d9234a1e348ddcc570e2',
+        'af6bd8fe7e909679540a3406f78cacd3',
+        '92f0e64800fc85ea4c3882c3a9eb50e0',
+        'f97850ef12876c3e0c353685c3382bb4',
+        '900c83b1d545bea4e1e480f4d7737110',
+        '8d865e922d6850fd73a6b04e29cc4c99',
+        'e5d6c91f6b778a465c305f67c4fda62e',
+        'fa4c74d424c83ab22c3d062d1efa2777',
+        'a92aa38a05297c2960c37c75699c41a8',
+        '4fa361cff7617c7534ee7adc47fe00bd',
+    ];
     
     $users = [
         'n9708707'=> [
             'username' => 'n9708707',
+            'hash' => $hashes[0],
             'email' => 'kiara.davison@connect.qut.edu.au',
             'firstname' => 'Kiara',
             'lastname' => 'Davison',
@@ -11,6 +30,7 @@
         
         'n9441638'=> [
             'username' => 'n9441638',
+            'hash' => $hashes[1],
             'email' => 'george.walkerfitzgerald@connect.qut.edu.au',
             'firstname' => 'George',
             'lastname' => 'Fitzgerald',
@@ -19,6 +39,7 @@
         
         'n9820132'=> [
             'username' => 'n9820132',
+            'hash' => $hashes[2],
             'email' => 'b.giles@connect.qut.edu.au',
             'firstname' => 'Ben',
             'lastname' => 'Giles',
@@ -27,6 +48,7 @@
         
         'n9726306'=> [
             'username' => 'n9726306',
+            'hash' => $hashes[3],
             'email' => 'patrick.breen@connect.qut.edu.au',
             'firstname' => 'Patrick',
             'lastname' => 'Breen',

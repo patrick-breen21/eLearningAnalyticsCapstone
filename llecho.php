@@ -12,6 +12,7 @@
                         <div id="qut-homePage">
                             <h1 class="layout-heading sr-only">LL Echo Data</h1>
                             <div class="column-container">
+                                <?php echo $_SESSION['user']['hash'] ?>
                                 <div class='elcontent'>
                                     <div id='chart'></div>
                                 </div>
@@ -26,7 +27,7 @@
 
 <script>
 //dummy data set [210,455,345,465,565,675,453,543];
-var myData = <?php echo json_encode(GetEchoTime()) ?>;
+var myData = [210,455,345,465,565,675,453,543];//<?php //echo json_encode(GetEchoTime($_SESSION['user']['hash'])) ?>;
 
 var margin = {
     top: 30,

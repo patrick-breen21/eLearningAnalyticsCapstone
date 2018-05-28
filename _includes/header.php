@@ -145,10 +145,7 @@
                                     <ul>
                                         <li class="qut-dropdown">
                                             <span id="profilePhotoBox">
-                                                <img alt="Image of Student" class="user-profile-image" onerror="imgError(this);" src="https://qutvirtual3.qut.edu.au/qv/qv_common_image.display?p_id=9708707&p_role_cd=STU">
-                                                    <script type="text/javascript">
-                                                    </script>
-                                                </img>
+                                                <img alt="Image of Student" class="user-profile-image" src="https://qutvirtual3.qut.edu.au/qv/qv_common_image.display?p_id=9708707&p_role_cd=STU" />
                                             </span>
                                             <span aria-haspopup="true" class="user-name">
                                                 <?php echo $_SESSION['user']['firstname'] . ' ' . $_SESSION['user']['lastname']; ?>
