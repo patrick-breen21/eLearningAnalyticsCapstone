@@ -92,16 +92,7 @@ function parseCSV($csv, $headings = null)
 
 function loadUserEchoTimes($hash, $data)
 {
-    echo($hash.'<br>');
-    foreach ($data as $row) {
-        if ($hash == $row['hash']) {
-            //insert data into learning locker
-            $duration = (int) $row['Echo Duration (Minutes)'];
-            //echo($hash.' - '.$duration.'<br>');
-            InsertEchoTimeStatement($hash, $duration);
-        }
-    }
-    echo('import for '.$hash.' completed');
+    loadSingleUserData($hash, 'Echo Duration (Minutes)', $data);
 }
 
 function loadSingleUserData($hash, $col, $data)
