@@ -11,8 +11,24 @@
                         <div id="qut-homePage">
                             <h1 class="layout-heading sr-only">Help</h1>
                             <div class="column-container">
-                                <div class='elcontent'>
-                                    <iframe class='chart' src="http://ec2-13-210-217-192.ap-southeast-2.compute.amazonaws.com/dashboards/5af0a49794d16c055a580d97" scrolling="no"></iframe>
+                                <div class="elcontent">
+                                    <div class='faq'>
+                                        <h3>FAQs - Most Common Questions</h3>
+                                        <h4>Question 1</h4>
+                                        <p>Answer</p>
+                                        <h4>Question 2</h4>
+                                        <p>Answer</p>
+                                        <h4>Question 3</h4>
+                                        <p>Answer</p>
+                                        <h4>Question 4</h4>
+                                        <p>Answer</p>
+                                        <h4>Question 5</h4>
+                                        <p>Answer</p>
+                                    </div>
+                                    <div class='support'>
+                                        <h3>Support Forum</h3>
+                                        <p>Discussion Base for Questions and Answers</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
