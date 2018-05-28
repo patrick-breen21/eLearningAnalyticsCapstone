@@ -26,7 +26,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="menu-page2">
-                                                        <a href="page2.php">
+                                                        <a href="llecho.php">
                                                             LL Echo Data
                                                         </a>
                                                     </li>
@@ -36,12 +36,12 @@
                                                         </a>
                                                     </li>
                                                     <li class="menu-page4">
-                                                        <a href="page4.php">
+                                                        <a href="adddata.php">
                                                             Add Data
                                                         </a>
                                                     </li>
                                                     <li class="menu-page5">
-                                                        <a href="page5.php">
+                                                        <a href="help.php">
                                                             Help
                                                         </a>
                                                     </li>

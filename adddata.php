@@ -2,9 +2,6 @@
 <?php include('_includes/head.php') ?>
 <?php
     $data = null;
-    // ID Number,Unique Views,Cumulative Views,Average Completion,Last Echo Viewed,Last Date Viewed,Bookmarks,Discussion Threads Started,Echoes Downloaded,Live Events Attended
-    $headings = ['ID Number','Unique Views','Cumulative Views','Average Completion','Last Echo Viewed','Last Date Viewed','Bookmarks','Discussion Threads Started','Echoes Downloaded','Live Events Attended'];
-    if ($_FILES[csv]) $data = parseCSV($_FILES[csv]);
 ?>
 <body class=" controls-visible private-page ${intranet-demo} student Current Student en group-id-16731135 page-id-16787600 portlet-type " id="student-theme" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
         <div id="wrapper-container">
@@ -20,6 +17,21 @@
                                 <div class='elcontent'>
                                     <div><?php csv_import_form(); ?></div>
                                     <br>
+                                    <div class='upload-msg'>
+                                    <?php
+                                        if ($_FILES[csv]) {
+                                            $data = parseCSV($_FILES[csv]);
+                                            if ($data[0]['Echo Date']) {
+                                                $hashes = array_unique(array_column($data, 'hash'));
+                                                foreach ($hashes as $hash) {
+                                                    echo('<pre>');
+                                                    loadSingleUserData($hash, 'Echo Duration (Minutes)', $data);
+                                                    echo('</pre>');
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                    </div>
                                     <div>
                                         <?php displayData($data); ?>
                                     </div>

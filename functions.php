@@ -90,6 +90,35 @@ function parseCSV($csv, $headings = null)
     return null;
 }
 
+function loadUserEchoTimes($hash, $data)
+{
+    echo($hash.'<br>');
+    foreach ($data as $row) {
+        if ($hash == $row['hash']) {
+            //insert data into learning locker
+            $duration = (int) $row['Echo Duration (Minutes)'];
+            //echo($hash.' - '.$duration.'<br>');
+            InsertEchoTimeStatement($hash, $duration);
+        }
+    }
+    echo('import for '.$hash.' completed');
+}
+
+function loadSingleUserData($hash, $col, $data)
+{
+    echo($hash.'<br>');
+    foreach ($data as $row) {
+        if ($hash == $row['hash']) {
+            //insert data into learning locker
+            $duration = (int) $row[$col];
+            //echo($hash.' - '.$duration.'<br>');
+            //InsertEchoTimeStatement($hash, $duration);
+        }
+    }
+    echo('import for '.$hash.' completed');
+}
+
+
 function displayData($data) {
     echo "<table class='datatable'>";
     echo "<tr>";
