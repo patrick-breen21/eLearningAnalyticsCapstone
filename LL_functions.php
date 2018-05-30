@@ -73,8 +73,7 @@ function InsertEchoTimeStatement($name, $time)
     }
 
 }
-
-function GetEchoTime()
+function GetEchoTimeUser($hash)
 {
     $curl = curl_init();
 
@@ -115,6 +114,7 @@ function GetEchoTime()
 
         //Extract percentage as integer from response
         $string = (string) $response;
+
 
         //Retrieve number after the string "raw"
         preg_match_all('/(?<=raw":)[^}]{1,3}/m', $string, $matches, PREG_SET_ORDER, 0);

@@ -4,30 +4,32 @@
         <div id="wrapper-container">
             <?php include('_includes/header.php'); ?>            
             <div id="wrapper">
-                <?php include('_includes/nav.php'); ?>
-                <?php include('_includes/status.php'); ?>                
+                <?php include('_includes/nav.php'); ?>               
                 <div class="columns-2-r" id="content-wrapper">
                     <div class="lfr-grid" id="layout-grid">
                         <div id="qut-homePage">
                             <h1 class="layout-heading sr-only">Help</h1>
                             <div class="column-container">
                                 <div class="elcontent">
-                                    <div class='faq'>
-                                        <h3>FAQs - Most Common Questions</h3>
-                                        <h4>Question 1</h4>
-                                        <p>Answer</p>
-                                        <h4>Question 2</h4>
-                                        <p>Answer</p>
-                                        <h4>Question 3</h4>
-                                        <p>Answer</p>
-                                        <h4>Question 4</h4>
-                                        <p>Answer</p>
-                                        <h4>Question 5</h4>
-                                        <p>Answer</p>
+                                    <div class='peer-support'>
+                                        <h3>Peer Support Timetable</h3>
+                                        <br>
+                                        <a href='https://blackboard.qut.edu.au/webapps/blackboard/content/listContent.jsp?course_id=_106041_1&content_id=_6012908_1'>STIMulate Resources</a>
+                                        <iframe width='100%' height='500px' src="https://stimulate.qut.edu.au/timetable#GardensPoint/IT" scrolling="yes"></iframe>
+                                        <br>
                                     </div>
                                     <div class='support'>
-                                        <h3>Support Forum</h3>
-                                        <p>Discussion Base for Questions and Answers</p>
+                                        <h3>Get Help With:</h3>
+                                        <br>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/studying-effectively'>Studying Effectively</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/researching-and-notetaking'>Researching & Notetaking</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/exams'>Preparing for Exams</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/classes-and-readings'>Classes and Readings</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/assignments'>Assignments</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/studying-with-a-disability-injury-or-health-condition'>Studying with a disability, injury or health condition</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/workshops-and-academic-help'>Workshops and academic help</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/study-spaces-and-facilities'>Study Spaces and Facilities</a></p>
+
                                     </div>
                                 </div>
                             </div>

@@ -7,14 +7,7 @@ var statuses = [
 ];
 
 function init(){
-    var percent = getPercent(".signal-chart");
-	console.log(percent);
-
-	var dataset = [
-		{ name: percent+'%', percent: percent, color: statuses[getStatus(percent)].color},
-		{ name: '', percent: 100-percent, color: "#ddd"},
-	];
-    updateChart(".signal-chart", dataset);
+    updateChart(".signal-chart");
 }
 
 function getPercent(wrapperClass) {
@@ -48,12 +41,76 @@ function getColors(data) {
 }
 
 // D3 chart
-function updateChart(chartClass, dataset) {
+function updateChart(chartClass) {
+	var percent = getPercent(chartClass);
 	$(chartClass).html("");
 
-	dataset = cleanDataset(dataset);
-	if (dataset.length == 0) return;
+	var color = statuses[getStatus(percent)].color;
 
+	colors = [color, "#F5F5F5"];
+	halfDonut(chartClass, percent, colors);
+}
+
+function halfDonut(chartClass, percent) {
+    var value = percent/100
+    var text = Math.round(value * 100) + '%'
+    var data = [value, 1 - value]
+    
+    // Settings
+	var width = 300
+    var height = 150
+    var anglesRange = 0.5 * Math.PI
+    var radis = Math.min(width, 2 * height) / 2
+    var thickness = 50
+    // Utility 
+//     var colors = d3.scale.category10();
+    
+    var pies = d3.layout.pie()
+    	.value( d => d)
+    	.sort(null)
+    	.startAngle( anglesRange * -1)
+    	.endAngle( anglesRange)
+    
+		var arc = d3.svg.arc()
+    	.outerRadius(radis)
+    	.innerRadius(radis - thickness)
+    
+    var translation = (x, y) => `translate(${x}, ${y})`
+    
+    // Feel free to change or delete any of the code you see in this editor!
+    var svg = d3.select(chartClass).append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    	.attr("class", "half-donut")
+			.append("g")
+    	.attr("transform", translation(width / 2, height))
+    
+    
+    var path = svg.selectAll("path")
+    	.data(pies(data))
+    	.enter()
+    	.append("path")
+    	.attr("fill", (d, i) => colors[i])
+    	.attr("d", arc);
+
+	path.transition()
+	  .duration(1000)
+	  .attrTween('d', function(d) {
+	      var interpolate = d3.interpolate({startAngle: anglesRange * -1, endAngle: anglesRange}, d);
+	      return function(t) {
+	          return arc(interpolate(t));
+	      };
+	  });
+
+	svg.append("text")
+    	.text( d => text)
+    	.attr("dy", "-3rem")
+    	.attr("class", "label")
+    	.attr("text-anchor", "middle");
+}
+
+function fancyDonut(chartClass, dataset) {
+	if (dataset.length == 0) return;
 	var pie=d3.layout.pie()
 	        .value(function(d){return d.percent})
 	        .sort(null)
