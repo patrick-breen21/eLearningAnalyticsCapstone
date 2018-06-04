@@ -1,4 +1,3 @@
-<html class="no-js webkit safari safari0 js gr__smallprojects_info" dir="ltr" lang="en"><!--<![endif]-->
 <?php include '_includes/head.php'?>
 <body class=" controls-visible private-page ${intranet-demo} student Current Student en group-id-16731135 page-id-16787600 portlet-type " id="student-theme" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
         <div id="wrapper-container">

@@ -2,7 +2,7 @@
                 <div class="contain-width">
                     <div id="banner">
                         <div id="qut-dynamic-nav">
-                            <a class="menu" href="javascript:void(0)" id="show-nav-menu">
+                            <a class="menu" href="javascript:mobileMenu();void(0)" id="show-nav-menu">
                                 <em class="fa fa-bars">
                                 </em>
                                 <span class="sr-only">

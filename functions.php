@@ -98,14 +98,12 @@ function loadUserEchoTimes($hash, $data)
 function loadSingleUserData($hash, $col, $data)
 {
     foreach ($data as $row) {
-        if ($hash == $row['hash']) {
             //insert data into learning locker
             $duration = (int) $row[$col];
-            //echo($hash.' - '.$duration.'<br>');
-            InsertEchoTimeStatement($hash, $duration);
-        }
+            echo($row['hash'].' - '.$duration.'<br>');
+            InsertEchoTimeStatement($row['hash'], $duration);
     }
-    echo('import for '.$hash.' completed');
+    echo('import for all rows completed');
 }
 
 

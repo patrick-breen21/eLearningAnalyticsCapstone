@@ -7,7 +7,7 @@ $dev = false;
 //Start the Session
 ?>
 
-
+<html class="no-js webkit safari safari0 js gr__smallprojects_info" dir="ltr" lang="en"><!--<![endif]-->
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <link href="./qut-home_files/css" rel="stylesheet" type="text/css"/>

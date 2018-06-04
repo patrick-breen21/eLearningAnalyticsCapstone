@@ -1,5 +1,5 @@
-<html class="no-js webkit safari safari0 js gr__smallprojects_info" dir="ltr" lang="en"><!--<![endif]-->
 <?php include('_includes/head.php') ?>
+
 <?php
     $data = null;
 ?>
@@ -23,12 +23,11 @@
                                             $data = parseCSV($_FILES[csv]);
                                             if ($data[0]['Echo Date']) {
                                                 $hashes = array_unique(array_column($data, 'hash'));
-                                                foreach ($hashes as $hash) {
-                                                    echo('<pre>');
-                                                    //echo $hash;
-                                                    loadSingleUserData($hash, 'Echo Duration (Minutes)', $data);
-                                                    echo('</pre>');
-                                                }
+
+                                                echo('<pre>');
+                                                echo $_SESSION['user']['hash'].'<br>';
+                                                loadSingleUserData($_SESSION['user']['hash'], 'Echo Duration (Minutes)', $data);
+                                                echo('</pre>');
                                             }
                                         }
                                     ?>

@@ -7,7 +7,13 @@ var statuses = [
 ];
 
 function init(){
+	//$('#show-nav-menu').click(mobileMenu);
     updateChart(".signal-chart");
+}
+
+function mobileMenu() {
+	//alert('click');
+	$('#wrapper-container').toggleClass('show-menu');
 }
 
 function getPercent(wrapperClass) {

@@ -58,9 +58,6 @@
 
                             </div>
                         </div>
-                        <script type="text/javascript">
-                            /*<![CDATA[*/Liferay.Portlet.onLoad({canEditTitle:false,columnPos:0,isStatic:"end",namespacedId:"p_p_id\u005f\u0044\u0079\u006e\u0061\u006d\u0069\u0063\u006e\u0061\u0076\u005f\u0057\u0041\u0052\u005f\u0064\u0079\u006e\u0061\u006d\u0069\u0063\u006e\u0061\u0076\u005f",portletId:"\u0044\u0079\u006e\u0061\u006d\u0069\u0063\u006e\u0061\u0076\u005f\u0057\u0041\u0052\u005f\u0064\u0079\u006e\u0061\u006d\u0069\u0063\u006e\u0061\u0076"});/*]]>*/
-                        </script>
                     </div>
                     <!--------------------- Top Breadcrumb --------------------------->
                 </div>

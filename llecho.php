@@ -1,4 +1,3 @@
-<html class="no-js webkit safari safari0 js gr__smallprojects_info" dir="ltr" lang="en"><!--<![endif]-->
 <?php include('_includes/head.php') ?>
 
 <body class=" controls-visible private-page ${intranet-demo} student Current Student en group-id-16731135 page-id-16787600 portlet-type " id="student-theme" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
@@ -12,7 +11,11 @@
                         <div id="qut-homePage">
                             <h1 class="layout-heading sr-only">LL Echo Data</h1>
                             <div class="column-container">
-                                <?php echo $_SESSION['user']['hash'] ?>
+                                <?
+                                    $hash = $_SESSION['user']['hash'];
+                                    $data = GetEchoTimeUser($hash);
+                                ?>
+                                <pre><?php echo $hash . ' - ' . json_encode($data); ?></pre>
                                 <div class='elcontent'>
                                     <div id='chart'></div>
                                 </div>
@@ -26,8 +29,9 @@
         </div>
 
 <script>
-//dummy data set [210,455,345,465,565,675,453,543];
-var myData = <?php echo json_encode(GetEchoTimeUser($_SESSION['user']['hash'])) ?>;
+
+var user = <?php echo json_encode($_SESSION['user']) ?>;
+var myData = <?php echo json_encode($data) ?>;
 
 var margin = {
     top: 30,
