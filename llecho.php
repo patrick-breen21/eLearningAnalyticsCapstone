@@ -9,13 +9,8 @@
                 <div class="columns-2-r" id="content-wrapper">
                     <div class="lfr-grid" id="layout-grid">
                         <div id="qut-homePage">
-                            <h1 class="layout-heading sr-only">LL Echo Data</h1>
+                            <h1 class="layout-heading sr-only">Learning Analytics - Echo Data</h1>
                             <div class="column-container">
-                                <?
-                                    $hash = $_SESSION['user']['hash'];
-                                    $data = GetEchoTimeUser($hash);
-                                ?>
-                                <pre><?php echo $hash . ' - ' . json_encode($data); ?></pre>
                                 <div class='elcontent'>
                                     <div id='chart'></div>
                                 </div>
@@ -30,8 +25,7 @@
 
 <script>
 
-var user = <?php echo json_encode($_SESSION['user']) ?>;
-var myData = <?php echo json_encode($data) ?>;
+var myData = <?php echo json_encode(GetEchoTimeUser($_SESSION['user']['hash'])) ?>;
 
 var margin = {
     top: 30,

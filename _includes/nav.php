@@ -20,14 +20,14 @@
                                                             Home
                                                         </a>
                                                     </li>
+                                                    <li class="menu-page2">
+                                                        <a href="llecho.php">
+                                                            Echo Data
+                                                        </a>
+                                                    </li>
                                                     <li class="menu-page1">
                                                         <a href="page1.php">
                                                             Assessment Analytics
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-page2">
-                                                        <a href="llecho.php">
-                                                            LL Echo Data
                                                         </a>
                                                     </li>
                                                     <li class="menu-charts">

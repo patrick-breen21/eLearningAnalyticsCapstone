@@ -53,7 +53,16 @@
             'firstname' => 'Patrick',
             'lastname' => 'Breen',
             'password' => password_hash("patrick", PASSWORD_DEFAULT)
-        ]
+        ],
+
+        'demo'=> [
+            'username' => 'demo',
+            'hash' => $hashes[1],
+            'email' => 'demo@connect.qut.edu.au',
+            'firstname' => 'Demo',
+            'lastname' => 'User',
+            'password' => password_hash("demo", PASSWORD_DEFAULT)
+        ],
     ];
     
     if(isset($_POST) & !empty($_POST)){
