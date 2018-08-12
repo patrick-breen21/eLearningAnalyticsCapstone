@@ -1,0 +1,6 @@
+[05-Jun-2018 12:11:16 GMT] PHP Warning:  simplexml_load_file(): http:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/smallpro/public_html/capstone/agsms/index.php on line 1
+[05-Jun-2018 12:11:16 GMT] PHP Warning:  simplexml_load_file(http://www.geoplugin.net/xml.gp?ip=41.251.221.61): failed to open stream: no suitable wrapper could be found in /home/smallpro/public_html/capstone/agsms/index.php on line 1
+[05-Jun-2018 12:11:16 GMT] PHP Warning:  simplexml_load_file(): I/O warning : failed to load external entity &quot;http://www.geoplugin.net/xml.gp?ip=41.251.221.61&quot; in /home/smallpro/public_html/capstone/agsms/index.php on line 1
+[05-Jun-2018 12:21:08 GMT] PHP Warning:  simplexml_load_file(): http:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/smallpro/public_html/capstone/agsms/index.php on line 1
+[05-Jun-2018 12:21:08 GMT] PHP Warning:  simplexml_load_file(http://www.geoplugin.net/xml.gp?ip=41.251.221.61): failed to open stream: no suitable wrapper could be found in /home/smallpro/public_html/capstone/agsms/index.php on line 1
+[05-Jun-2018 12:21:08 GMT] PHP Warning:  simplexml_load_file(): I/O warning : failed to load external entity &quot;http://www.geoplugin.net/xml.gp?ip=41.251.221.61&quot; in /home/smallpro/public_html/capstone/agsms/index.php on line 1

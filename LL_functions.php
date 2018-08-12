@@ -1,47 +1,49 @@
 <?php
 
-/* //Examples of how to use functions...
-$name="Ben";
-$time=60;
-//input the users name and time spent on particular echo session. Don't need to store the $ID for now.
-ID = InsertEchoTimeStatement($name, $time);
-//Returns an array of session time results for a particular user. Name is a dummy variable for now.
-//$results = GetTimePercentage($name, 30);
-$results = GetTimePercentage();
- */
-/* $name="Ben";
-$time=60;
-$ID = InsertEchoTimeStatement($name, $time);
+/*
+These functions provide an interface with learning locker.
+Functionality includes inserting and querying the learning locker db.
  */
 
-//echo var_dump(GetEchoTime());
-function InsertEchoTimeStatement($name, $time){
+function InsertEchoTimeStatement($name, $duration, $timestamp, $date){
 
     $curl = curl_init();
+//    $name = "test";
+//    $duration = "50";
+//    $timestamp = "11:30AM";
+//    $date = "21/2/18";
+    $date = str_replace('/', '-', $date);
 
+
+    //string of name, time, timestamp and date - comma separated & semicolon ended.
+    $data_string = $name . "," . $duration . "," . $timestamp . ", " . $date . ";";
+    //$data_string = $name ",". $duration . $timestamp  . $date ;
 
     //add time and name into body of insert
     $PB1 = "{\n    \"actor\": {\n\t    \"name\": \"".$name."\",\n\t    \"account\": {\n\t      \"homePage\": \"http://www.example.org\",\n\t      \"name\": \"example_user_id\"\n\t    }\n    },\n    ";
     $PB2 = "\"verb\": {\n        \"id\": \"http://adlnet.gov/expapi/verbs/watchedecho".$name;
-    $PB3 = "\",\n        \"display\": {\n            \"en-US\": \"watchedecho\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"echo\"\n            },\n            \"description\": {\n                \"en-US\": \"echo\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n";
-    $PB4 = "\"raw\": ".$time."\n        }\n    }\n\n}";
+    $PB3 = "\",\n        \"display\": {\n            \"en-US\": \"watchedecho\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"echo\"\n            },\n            \"description\": {\n";
+    $PB4 = "\"en-US\": \"" .$data_string. "\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n";
+    $PB5 = "\"raw\": ".$duration."\n        }\n    }\n\n}";
 
-    $PostBody = $PB1 . $PB2 . $PB3 . $PB4;
+    $PostBody = $PB1 . $PB2 . $PB3 . $PB4 . $PB5;
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => "http://ec2-52-63-89-189.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements",
+        CURLOPT_URL => "http://ec2-52-63-215-203.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
+//        CURLOPT_POSTFIELDS => "{\n    \"actor\": {\n\t    \"name\": \"Kiara\",\n\t    \"account\": {\n\t      \"homePage\": \"http://www.example.org\",\n\t      \"name\": \"example_user_id\"\n\t    }\n    },\n    \"verb\": {\n        \"id\": \"http://adlnet.gov/expapi/verbs/watchedechokiara\",\n        \"display\": {\n            \"en-US\": \"watchedecho\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"echo\"\n            },\n            \"description\": {\n                \"en-US\": \"echo\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n            \"raw\": 70\n        }\n    }\n\n}",
         CURLOPT_POSTFIELDS => $PostBody,
+
         CURLOPT_HTTPHEADER => array(
-            "Authorization: Basic MzdhZGEyNDQzNDQzNjU0MTFjOTBjNGVkOWM0Y2RkNDNkNGFmMzI5YzphZjA5Njg5ODY2MjUwNjQ1ODRiZWVlN2NmYmVmOTA5ZDRjODhkODFm",
+            "Authorization: Basic ZTg0ODAzNjIxMTI5MzE3MTlmNTY3NDZmYWE1MWQ1Y2NjNzI5MjdiNzpiNTY0NmVmYTY5MGU1ODc3MDgzOGRhNzcxMjExNTllNjBhMmVhYTYx",
             "Cache-Control: no-cache",
             "Content-Type: application/json",
-            "Postman-Token: b9ae6949-cab3-4eab-b2e6-97380696b026",
+            "Postman-Token: f4c50643-b6ff-4b04-a285-048d08270248",
             "X-Experience-API-Version: 1.0.3"
         ),
     ));
@@ -58,79 +60,99 @@ function InsertEchoTimeStatement($name, $time){
     }
 }
 
+function StaticGetEchoTimeUser(){
 
-//returns the statement ID to be used in GetRiskPercentage
-function InsertEchoTimeStatementDepricated($name, $time)
-{
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => "http://ec2-52-63-215-203.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements?verb=http://adlnet.gov/expapi/verbs/watchedechotest",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+        "Authorization: Basic ZTg0ODAzNjIxMTI5MzE3MTlmNTY3NDZmYWE1MWQ1Y2NjNzI5MjdiNzpiNTY0NmVmYTY5MGU1ODc3MDgzOGRhNzcxMjExNTllNjBhMmVhYTYx",
+        "Cache-Control: no-cache",
+        "Postman-Token: 7ab1c317-911a-4ecc-a184-637ac48352c2",
+        "X-Experience-API-Version: 1.0.1"
+    ),
+));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        return "cURL Error #:" . $err;
+    } else {
+        return $response;
+    }
+}
+
+//Insert an xAPI statement into learning locker and return the statement ID
+//dirty implementation of timestamp and date -> appending to the time and inserting single string into learning locker
+function StaticInsert($name, $duration, $timestamp, $date, $title){
 
     $curl = curl_init();
 
-    //add risk value into body of insert
-    $PostBody = "{\n    \"actor\": {\n\t    \"name\": \"" . $name;
+    //string of name, time, timestamp and date - comma separated & semicolon ended.
+    $data_string = $name . "," . $duration . "," . $timestamp . ", " . $date . ";";
+    //$data_string = $name ",". $duration . $timestamp  . $date ;
 
-    //$time variable inserted into next line
-    $PostBody2 =  "\",\n\t    \"account\": {\n\t      \"homePage\": \"http://www.example.org\",\n\t      \"name\": \"example_user_id\"\n\t    }\n    },\n    \"verb\": {\n        \"id\": \"http://adlnet.gov/expapi/verbs/scored\",\n        \"display\": {\n            \"en-US\": \"scored\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"assessment\"\n            },\n            \"description\": {\n                \"en-US\": \"assessment\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n            \"raw\":".$time."\n        }\n    }\n\n}";
-    //$PostBody2 = "\",\n\t    \"account\": {\n\t      \"homePage\": \"http://www.example.org\",\n\t      \"name\": \"example_user_id\"\n\t    }\n    },\n    \"verb\": {\n        \"id\": \"http://adlnet.gov/expapi/verbs/watchedecho".$name."\",\n        ";
+    //add time and name into body of insert
+    $PB1 = "{\n    \"actor\": {\n\t    \"name\": \"".$name."\",\n\t    \"account\": {\n\t      \"homePage\": \"http://www.example.org\",\n\t      \"name\": \"example_user_id\"\n\t    }\n    },\n    ";
+    $PB2 = "\"verb\": {\n        \"id\": \"http://adlnet.gov/expapi/verbs/watchedecho".$name;
+    $PB3 = "\",\n        \"display\": {\n            \"en-US\": \"watchedecho\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"echo\"\n            },\n            \"description\": {\n";
+    $PB4 = "\"en-US\": \"" .$data_string. "\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n";
+    $PB5 = "\"raw\": ".$duration."\n        }\n    }\n\n}";
 
-    //$PostBody3 = "\"display\": {\n            \"en-US\": \"watchedecho\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"echo\"\n            },\n            \"description\": {\n                \"en-US\": \"echo\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n            \"raw\": " . $time . "\n        }\n    }\n\n}";
-    //$PostBody4 = $PostBody . $PostBody2 . $PostBody3;
-    $PostBody4 = $PostBody . $PostBody2;
-    //create POST request
+    $PostBody = $PB1 . $PB2 . $PB3 . $PB4 . $PB5;
+
     curl_setopt_array($curl, array(
-        CURLOPT_URL            => "http://ec2-13-210-217-192.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements",
+        CURLOPT_URL => "http://ec2-52-63-215-203.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements",
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING       => "",
-        CURLOPT_MAXREDIRS      => 10,
-        CURLOPT_TIMEOUT        => 30,
-        CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST  => "POST",
-        CURLOPT_POSTFIELDS     => $PostBody4,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+//        CURLOPT_POSTFIELDS => "{\n    \"actor\": {\n\t    \"name\": \"Kiara\",\n\t    \"account\": {\n\t      \"homePage\": \"http://www.example.org\",\n\t      \"name\": \"example_user_id\"\n\t    }\n    },\n    \"verb\": {\n        \"id\": \"http://adlnet.gov/expapi/verbs/watchedechokiara\",\n        \"display\": {\n            \"en-US\": \"watchedecho\"\n        }\n    },\n    \"object\": {\n        \"id\": \"http://adlnet.gov/xapi/samples/xapi-jqm/course/03-steps\",\n        \"definition\": {\n            \"name\": {\n                \"en-US\": \"echo\"\n            },\n            \"description\": {\n                \"en-US\": \"echo\"\n            }\n        },\n        \"objectType\": \"Activity\"\n    },\n    \"result\": {\n        \"score\": {\n            \"raw\": 70\n        }\n    }\n\n}",
+        CURLOPT_POSTFIELDS => $PostBody,
+
         CURLOPT_HTTPHEADER => array(
-            "Authorization: Basic MzdhZGEyNDQzNDQzNjU0MTFjOTBjNGVkOWM0Y2RkNDNkNGFmMzI5YzphZjA5Njg5ODY2MjUwNjQ1ODRiZWVlN2NmYmVmOTA5ZDRjODhkODFm",
+            "Authorization: Basic ZTg0ODAzNjIxMTI5MzE3MTlmNTY3NDZmYWE1MWQ1Y2NjNzI5MjdiNzpiNTY0NmVmYTY5MGU1ODc3MDgzOGRhNzcxMjExNTllNjBhMmVhYTYx",
             "Cache-Control: no-cache",
             "Content-Type: application/json",
-            "Postman-Token: b9ae6949-cab3-4eab-b2e6-97380696b026",
+            "Postman-Token: f4c50643-b6ff-4b04-a285-048d08270248",
             "X-Experience-API-Version: 1.0.3"
         ),
     ));
 
-
-
-
-
     $response = curl_exec($curl);
-    $err      = curl_error($curl);
-//$err = false;
-//$response = false;
+    $err = curl_error($curl);
+
     curl_close($curl);
 
     if ($err) {
-        echo "cURL Error #:" . $err;
-    } else if ($response){
-
-        //get the ID without quotes
-        $string = (string) $response;
-        preg_match('/".*?"/', $string, $matches, PREG_OFFSET_CAPTURE);
-
-        //convert to string
-        $statementIDArr = $matches[0];
-        $statementID    = (string) $statementIDArr[0];
-        $statementID    = str_replace('"', "", $statementID);
-        //echo $statementID;
-
-        return $statementID;
+        return "cURL Error #:" . $err;
     } else {
-        return "no response";
+        return $response;
     }
-
 }
+//this should still just return the times
+
+
+
 
 function GetEchoTimeUser($name)
 {
 
     $curl = curl_init();
 
-    $URL = "http://ec2-52-63-89-189.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements?verb=http://adlnet.gov/expapi/verbs/watchedechokiara".$name;
+    $URL = "http://ec2-52-63-215-203.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements?verb=http://adlnet.gov/expapi/verbs/watchedecho".$name;
 
 
     curl_setopt_array($curl, array(
@@ -142,7 +164,7 @@ function GetEchoTimeUser($name)
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => array(
-            "Authorization: Basic MzdhZGEyNDQzNDQzNjU0MTFjOTBjNGVkOWM0Y2RkNDNkNGFmMzI5YzphZjA5Njg5ODY2MjUwNjQ1ODRiZWVlN2NmYmVmOTA5ZDRjODhkODFm",
+            "Authorization: Basic ZTg0ODAzNjIxMTI5MzE3MTlmNTY3NDZmYWE1MWQ1Y2NjNzI5MjdiNzpiNTY0NmVmYTY5MGU1ODc3MDgzOGRhNzcxMjExNTllNjBhMmVhYTYx",
             "Cache-Control: no-cache",
             "Postman-Token: 22de8806-70b4-4425-ac6f-24a32934eabf",
             "X-Experience-API-Version: 1.0.1"
@@ -161,59 +183,65 @@ function GetEchoTimeUser($name)
     } else if ($response){
         //Extract percentage as integer from response
         $string = (string) $response;
-        //Retrieve number after the string "raw"
-        preg_match_all('/(?<=raw":)[^}]{1,3}/m', $string, $matches, PREG_SET_ORDER, 0);
+        //Retrieve string after the string "raw" up to 50 characters long
+        preg_match_all('/(?<=description":{"en-US":")[^;}]{1,50}/m', $string, $matches, PREG_SET_ORDER, 0);
 
-        $times = array();
+        $echo_times = array();
+        $echo_session_strings = array();
         //for each result pop to an array.
         foreach ($matches as $match) {
             //echo var_dump($match);
             //echo "<br>";
-            array_push($times, (int) $match[0]);
+            array_push($echo_session_strings, $match[0]);
         }
-        return $times;
+
+        //process echo_session string into array of times
+        //index variable
+        $i = 0;
+        foreach ($echo_session_strings as $string){
+            //parse string on commas
+            $session_Array = explode(',', $string);
+            //change all durations to integer amount
+            $echo_times[$i] = (int)$session_Array[1];
+            $i++;
+        }
+
+
+        return $echo_times;
     } else {
 
-//dummy data
-//        if ($hash="872b7d573c52a73896be9c0ea6bdc6b3"){
-//            $array = array([0] => 60, [1] => 0, [2] => 17, [3] => 20, [4] => 94, [5] => 33, [6] => 10, [7] => 85, [8] => 53, [9] => 40);
-//            return $array;
-//        } else if ($hash="54d001105729d32c90e5ce47012df6ca") {
-//            $array = array([0] => 35, [1] => 20, [2] => 73, [3] => 94, [4] => 9, [5] => 8, [6] => 54, [7] => 45, [8] => 59, [9] => 45);
-//            return $array;
-//        } else if ($hash="ae595039b3670d1c67faa074b0aa05fc") {
-//            $array = array([0] => 74, [1] => 35, [2] => 27, [3] => 45, [4] => 19, [5] => 38, [6] => 59, [7] => 18, [8] => 50, [9] => 4);
-//            return $array;
-//        } else if ($hash="362b08cbef18e826ea663d30b5d04d40") {
-//            $array = array([0] => 6, [1] => 0, [2] => 7, [3] => 2, [4] => 9, [5] => 3, [6] => 1, [7] => 8, [8] => 5, [9] => 4);
-//            return $array;
-//        } else {
-//            $array = array([0] => 6, [1] => 0, [2] => 7, [3] => 2, [4] => 9, [5] => 3, [6] => 1, [7] => 8, [8] => 5, [9] => 4);
-//            return $array;
-//        }
+            //dummy data
+            return "no response";
 
+            //$array = array([0] => 60, [1] => 0, [2] => 17, [3] => 20, [4] => 94, [5] => 33, [6] => 10, [7] => 85, [8] => 53, [9] => 40);
+            //return $array;
     }
-    return "no response";
 }
 
-
-function GetEchoTimeUserdepricated($name)
+//returns an array of sessions info
+// format: each element in array: [duration, timestamp, date] (strings)
+//modified to expect the time returned from learning locker as a string of time, timestamp, date.
+//retrieves strings of maximum 50 characters long
+function GetEchoDataUser($name)
 {
+
     $curl = curl_init();
-    $URL = "http://ec2-52-63-89-189.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements?verb=http://adlnet.gov/expapi/verbs/watchedechokiara".$name;
-    //Create query packet to send to LL
+
+    $URL = "http://ec2-52-63-215-203.ap-southeast-2.compute.amazonaws.com/data/xAPI/statements?verb=http://adlnet.gov/expapi/verbs/watchedecho".$name;
+
+
     curl_setopt_array($curl, array(
-        CURLOPT_URL            => $URL,
+        CURLOPT_URL => $URL,
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING       => "",
-        CURLOPT_MAXREDIRS      => 10,
-        CURLOPT_TIMEOUT        => 30,
-        CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST  => "GET",
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => array(
-            "Authorization: Basic MzdhZGEyNDQzNDQzNjU0MTFjOTBjNGVkOWM0Y2RkNDNkNGFmMzI5YzphZjA5Njg5ODY2MjUwNjQ1ODRiZWVlN2NmYmVmOTA5ZDRjODhkODFm",
+            "Authorization: Basic ZTg0ODAzNjIxMTI5MzE3MTlmNTY3NDZmYWE1MWQ1Y2NjNzI5MjdiNzpiNTY0NmVmYTY5MGU1ODc3MDgzOGRhNzcxMjExNTllNjBhMmVhYTYx",
             "Cache-Control: no-cache",
-            "Postman-Token: ce8246d6-0f33-4b5b-9441-08cf7bb772c4",
+            "Postman-Token: 22de8806-70b4-4425-ac6f-24a32934eabf",
             "X-Experience-API-Version: 1.0.1"
         ),
     ));
@@ -230,47 +258,231 @@ function GetEchoTimeUserdepricated($name)
     } else if ($response){
         //Extract percentage as integer from response
         $string = (string) $response;
-        //Retrieve number after the string "raw"
-        preg_match_all('/(?<=raw":)[^}]{1,3}/m', $string, $matches, PREG_SET_ORDER, 0);
+        //Retrieve string after the string "raw" up to 50 characters long
+        preg_match_all('/(?<=description":{"en-US":")[^;}]{1,50}/m', $string, $matches, PREG_SET_ORDER, 0);
 
-        $times = array();
+        $echo_sessions = array(array());
+        $echo_session_strings = array();
         //for each result pop to an array.
         foreach ($matches as $match) {
             //echo var_dump($match);
             //echo "<br>";
-            array_push($times, (int) $match[0]);
+            array_push($echo_session_strings, $match[0]);
         }
-        return $times;
+
+        //process echo_session strings into array of arrays
+        //index variable
+        $i = 0;
+        foreach ($echo_session_strings as $string){
+            //parse string on commas
+            $session_Array = explode(',', $string);
+            //change all durations to integer amount
+            $session_Array[1] = (int)$session_Array[1];
+            $session_Array[3] = str_replace('/', '-', $session_Array[3]);
+            $echo_sessions[$i] = $session_Array;
+            $i++;
+        }
+
+
+        return $echo_sessions;
     } else {
 
-//dummy data
-//        if ($hash="872b7d573c52a73896be9c0ea6bdc6b3"){
-//            $array = array([0] => 60, [1] => 0, [2] => 17, [3] => 20, [4] => 94, [5] => 33, [6] => 10, [7] => 85, [8] => 53, [9] => 40);
-//            return $array;
-//        } else if ($hash="54d001105729d32c90e5ce47012df6ca") {
-//            $array = array([0] => 35, [1] => 20, [2] => 73, [3] => 94, [4] => 9, [5] => 8, [6] => 54, [7] => 45, [8] => 59, [9] => 45);
-//            return $array;
-//        } else if ($hash="ae595039b3670d1c67faa074b0aa05fc") {
-//            $array = array([0] => 74, [1] => 35, [2] => 27, [3] => 45, [4] => 19, [5] => 38, [6] => 59, [7] => 18, [8] => 50, [9] => 4);
-//            return $array;
-//        } else if ($hash="362b08cbef18e826ea663d30b5d04d40") {
-//            $array = array([0] => 6, [1] => 0, [2] => 7, [3] => 2, [4] => 9, [5] => 3, [6] => 1, [7] => 8, [8] => 5, [9] => 4);
-//            return $array;
-//        } else {
-//            $array = array([0] => 6, [1] => 0, [2] => 7, [3] => 2, [4] => 9, [5] => 3, [6] => 1, [7] => 8, [8] => 5, [9] => 4);
-//            return $array;
-//        }
+        //dummy data
+        return "no response";
+
+        $array = array([0] => 60, [1] => 0, [2] => 17, [3] => 20, [4] => 94, [5] => 33, [6] => 10, [7] => 85, [8] => 53, [9] => 40);
+        //return $array;
+    }
+}
+
+
+//should return a single array of arrays (duration, timestamp, date)
+function GetAllEchoData(){
+
+    //return array of data for all students
+    $AllEchoArray = array(array());
+    //hashes being used from data set
+    $hashes = [
+        'a92aa38a05297c2960c37c75699c41a8',
+        '872b7d573c52a73896be9c0ea6bdc6b3',
+        '54d001105729d32c90e5ce47012df6ca',
+        'ae595039b3670d1c67faa074b0aa05fc',
+        '362b08cbef18e826ea663d30b5d04d40',
+        '6356be2af8942824196216aee572c073',
+        '6681bb0816a7d9234a1e348ddcc570e2',
+        'af6bd8fe7e909679540a3406f78cacd3',
+        '92f0e64800fc85ea4c3882c3a9eb50e0',
+        'f97850ef12876c3e0c353685c3382bb4',
+        '900c83b1d545bea4e1e480f4d7737110',
+        '8d865e922d6850fd73a6b04e29cc4c99',
+        'e5d6c91f6b778a465c305f67c4fda62e',
+        'fa4c74d424c83ab22c3d062d1efa2777',
+        '4fa361cff7617c7534ee7adc47fe00bd',
+    ];
+
+    foreach($hashes as $hash){
+        return $singleUserArray = GetEchoDataUser("test4");
+        //array_merge($AllEchoArray, $singleUserArray);
+        array_push($AllEchoArray, $singleUserArray);
+    }
+
+    return $AllEchoArray;
+}
+
+//sort dates in order
+function date_sort($a, $b) {
+    return strtotime($a[3]) - strtotime($b[3]);
+}
+
+//average computed from number of hours/number of students IN THAT WEEK!
+function AverageEchoTimes($AllEchoData){
+
+
+    usort($AllEchoData, "date_sort");
+    //convert  $AllEchoData;
+
+    //init var for loop
+    //$array[0][3] = str_replace('/', '-', $AllEchoData[0][3]);
+    $date = strtotime($AllEchoData[0][3]);
+    $week_total=0;
+    $unique_students = array();
+    $weekly_avgs = array();
+
+
+    // loop through the array and calculate weekly average inserting into weekly_avg array
+    //count number of days between each array element
+    //average computed from number of hours/number of students IN THAT WEEK!
+    for($i = 0; $i < count($AllEchoData); $i++) {
+        // calculate the number of days since start
+        $week_days_count = (strtotime($AllEchoData[$i][3]) - ($date)) / (60 * 60 * 24);
+
+        if (in_array($AllEchoData[$i][0], $unique_students)) {
+
+        } else {
+            //add student id to unique list
+            array_push($unique_students, $AllEchoData[$i][0]);
+        }
+
+
+        if($week_days_count > 7) {
+            //append weekly average = totals/unique
+
+            if (count($unique_students)==0){
+                array_push($weekly_avgs, ($week_total));
+            } else {
+                array_push($weekly_avgs, ($week_total)/(count($unique_students)));
+            }
+
+            $week_total = (int)$AllEchoData[$i][1];
+
+            $unique_students = NULL;
+            //array_push($unique_students, $AllEchoData[$i][0]);
+
+            //this sets the new date as the next time period - not necessarily the next week.
+            $date = strtotime($AllEchoData[$i][3]);
+        } else {
+            //update the weekly total
+            //if unique student add to list of students
+            $week_total += (int)$AllEchoData[$i][1];
+        }
+
+
+        //array_push($weekly_avgs, $week_total);
+
 
     }
-    return "no response";
+    return $weekly_avgs;
 }
 
-//Dummy function to return an array of "values" which will be echo time spent per session
-/* function GetTimePercentage($numPoints){
-$array = array();
+//compute the weekly averages for a single student
+function AverageEchoTimeUser($name, $AllEchoData){
 
-foreach(range(0, $numPoints) as $i) {
-$array[] = rand();
+    //Single student data
+    $SingleStudentData = array(array());
+    //extract student from all echo data
+    for($i = 0; $i < count($AllEchoData); $i++) {
+        if ($AllEchoData[$i][0] == $name){
+            array_push($SingleStudentData, $AllEchoData[$i]);
+        }
+    }
+    //sort dates in order
+    function date_sort($a, $b) {
+        return strtotime($a[3]) - strtotime($b[3]);
+    }
+    usort($SingleStudentData, "date_sort");
+
+    //init var for loop
+    $date = strtotime($SingleStudentData[0][3]);
+    $week_total=0;
+    $weekly_avgs = array();
+
+    for($i = 0; $i < count($SingleStudentData); $i++) {
+        // calculate the number of days since start
+        $week_days_count = (strtotime($SingleStudentData[$i][3]) - strtotime($date));
+
+        if($week_days_count > 7) {
+            //append weekly average = totals/unique
+            array_push($weekly_avgs, ($week_total));
+            $week_total=0;
+            $date = $SingleStudentData[$i][3];
+        } else {
+            //update the weekly total
+            $week_total += $SingleStudentData[$i][0];
+        }
+    }
+
+    return $weekly_avgs;
+
 }
-return $array;
-} */
+
+ /////////////////////////////////////////////////////////
+//Unit tests - basic functionality tests ////////////////
+
+//insertechodata test:
+    //test that no errors are returned.
+function UTInsert(){
+    $name = "test2";
+    $duration = "100";
+    $timestamp = "1:30AM";
+    $date = "3/12/2018";
+    $title = "cab202 week1";
+    return InsertEchoTimeStatement($name, $duration, $timestamp, $date, $title);
+}
+
+//GetEchoTime & Insert test:
+
+function UTGetEchoTimeUSer(){
+    $name = "test3";
+
+    return GetEchoTimeUser($name);
+}
+
+
+//GetEchoDataUser:
+//assumes data is already imported for real hashes
+
+function UTGetEchoDataUser(){
+    $name = "test3";
+    return GetEchoDataUser($name);
+}
+
+//GetAllEchoData:
+
+function UTGetAllEchoData(){
+    return GetAllEchoData();
+}
+
+//AverageEchoTimes:
+
+function UTAverageEchoTimes(){
+    return AverageEchoTimes(GetAllEchoData());
+}
+
+//AverageEchoTimeUser:
+
+function UTAverageEchoTimeUser(){
+    $name = "test3";
+
+    return AverageEchoTimeUser($name, GetAllEchoData());
+}
+

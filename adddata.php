@@ -24,10 +24,8 @@
                                             if ($data[0]['Echo Date']) {
                                                 $hashes = array_unique(array_column($data, 'hash'));
 
-                                                echo('<pre>');
                                                 echo $_SESSION['user']['hash'].'<br>';
-                                                loadSingleUserData($_SESSION['user']['hash'], 'Echo Duration (Minutes)', $data);
-                                                echo('</pre>');
+                                                loadData($data, $portal='LL');
                                             }
                                         }
                                     ?>

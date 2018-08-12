@@ -2,6 +2,14 @@
 include_once 'LLGET.php';
 include_once 'LL_functions.php';
 
+
+function pre_dump($var) {
+    echo "<pre>";
+    var_dump($var);
+    echo "</pre>";
+}
+
+
 function csvget($filename)
 {
     //parse through a  csv and relay data
@@ -90,18 +98,26 @@ function parseCSV($csv, $headings = null)
     return null;
 }
 
-function loadUserEchoTimes($hash, $data)
-{
-    loadSingleUserData($hash, 'Echo Duration (Minutes)', $data);
-}
-
-function loadSingleUserData($hash, $col, $data)
+function loadData($data, $portal='LL', $userid=null, $cols=null)
 {
     foreach ($data as $row) {
-            //insert data into learning locker
-            $duration = (int) $row[$col];
-            echo($row['hash'].' - '.$duration.'<br>');
-            InsertEchoTimeStatement($row['hash'], $duration);
+        if ($userid != null && !in_array( $userid, $row ) ) continue;
+        //extract relevent data
+        $args = [ 'userid' => $userid ];
+
+        if ($cols == null) {
+          $args = array_merge($args,$row); 
+        } else {
+          foreach ($cols as $col) {
+            $args[$col] = $row[$col];
+          }
+        }
+        
+        switch ($portal) {
+          case 'LL':
+            InsertEchoTimeStatement($args['userid'], $duration=$args['Echo Duration (Minutes)'], $duration=$args['Total Minutes Viewed'], $timestamp=$args['Echo Time'], $date=$args['Echo Date'], $title=$args['Echo Title']);
+            break;
+        }   
     }
     echo('import for all rows completed');
 }

