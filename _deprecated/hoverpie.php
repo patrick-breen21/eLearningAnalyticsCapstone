@@ -1,84 +1,91 @@
-<?php include('_includes/head.php') ?>
+<html>
 
-<?php
+<body>
 
-//$timeData = GetStudentTimeUnit($_SESSION['user']['hash'], 'cab202');
-// json_encode($timeData)
-
-$timeData = [];
-
-$colors = ["#0F7044", "#715B7B", "#00B3B3", "#DD3D17"];
-    
-foreach($_SESSION['user']['units'] as $index=>$unitCode) {
-  $time = rand(0,100);
-  $timeData[$unitCode] = $time;
-  $times[$index] = ['code' => $units[$unitCode]['code'], 'title' => $units[$unitCode]['title'], 'value' => $time, 'color' => $colors[$index%count($colors)]];
+<style>
+@import url(//fonts.googleapis.com/css?family=Oswald:400);
+* {
+  margin: 0;
+  padding: 0;
 }
-
-?>
-
-<?php
-    
-function getUnitTime($arr) {
-  return($arr['value']);
+body {
+  background-color: #e9efec;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBkPSJNMjggNjZMMCA1MEwwIDE2TDI4IDBMNTYgMTZMNTYgNTBMMjggNjZMMjggMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=);
+  font-family: "Oswald", "Helvetica Newe", Helvetica, sans-serif;
 }
-
-?>
-
-<body class=" controls-visible private-page ${intranet-demo} student Current Student en group-id-16731135 page-id-16787600 portlet-type " id="student-theme" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
-        <div id="wrapper-container">
-            <?php include('_includes/header.php'); ?>            
-            <div id="wrapper">
-                <?php include('_includes/nav.php'); ?>
-                <?php include('_includes/status.php'); ?>                
-                <div class="columns-2-r" id="content-wrapper">
-                    <div class="lfr-grid" id="layout-grid">
-                        <div id="qut-homePage">
-                            <h3 class="layout-heading portlet-title">Your Time Per Unit</h3>
-                            <div class="column-container">
-                                <div class='elcontent dashboard grid'>
-                                    <div id="pieChart" class="chart pie"></div>
-                                    <div class='cell legend course-listing'>
-                                      <?php foreach ($times as $unit): ?>
-                                        <?php
-                                          $timepercent = 100*$unit['value']/array_sum(array_map("getUnitTime",$times));
-                                          //pre_dump($timepercent);
-                                        ?>
-                                      <a href="unit/<?=$unit['code']?>">
-                                      <div class="course-item" >
-                                          <div badge="course" class="badge badge2" style="background-color: <?=$unit['color']?>"></div>
-                                          <h2 class="course-code"><?=$unit['code']?> (<?=round($timepercent)?>%)
-                                            <?php if ($unit['value']< 10 || $timepercent < 10): ?>
-                                                - Focus more
-                                            <?php endif; ?>
-                                          </h2>
-                                          <div class="course-title"><?=$unit['title']?></div>
-                                          <!--div class="course-discipline">Information Technology</div-->
-                                          <div class="course-video-count"><?=$unit['value']?> hours logged</ng-pluralize>
-                                          </div>
-                                      </div>
-                                      </a>
-                                      <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        <?php include('_includes/footer.php'); ?> 
-        </div>
+.chart {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  margin: -225px 0 0 -225px;
+}
+.pieTip {
+  position: absolute;
+  float: left;
+  min-width: 30px;
+  max-width: 300px;
+  padding: 5px 18px 6px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.97);
+  color: #444;
+  font-size: 19px;
+  text-shadow: 0 1px 0 #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: .06em;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.5);
+  -webkit-transform: all .3s;
+     -moz-transform: all .3s;
+      -ms-transform: all .3s;
+       -o-transform: all .3s;
+          transform: all .3s;
+  pointer-events: none;
+}
+.pieTip:after {
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      content: "";
+      height: 0;
+      margin: 0 0 0 -6px;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-top: 6px solid rgba(255,255,255,.95);
+      line-height: 0;
+}
+.chart path { cursor: pointer; }
+</style>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
-<script>
 
-console.log(<?= json_encode($times) ?>);
-    
+<div id="pieChart" class="chart"></div>
+
+
+<script>
 $(function(){
-  $("#pieChart").drawPieChart(<?= json_encode($times) ?>);
+  $("#pieChart").drawPieChart([
+    { title: "Tokyo",         value : 180,  color: "#02B3E7" },
+    { title: "San Francisco", value:  60,   color: "#CFD3D6" },
+    { title: "London",        value : 50,   color: "#736D79" },
+    { title: "New York",      value:  30,   color: "#776068" },
+    { title: "Sydney",        value : 20,   color: "#EB0D42" },
+    { title: "Berlin",        value : 20,   color: "#FFEC62" },
+    { title: "Osaka",         value : 7,    color: "#04374E" }
+  ]);
 });
 
+/*!
+ * jquery.drawPieChart.js
+ * Version: 0.3(Beta)
+ * Inspired by Chart.js(http://www.chartjs.org/)
+ *
+ * Copyright 2013 hiro
+ * https://github.com/githiro/drawPieChart
+ * Released under the MIT license.
+ */
 ;(function($, undefined) {
   $.fn.drawPieChart = function(data, options) {
     var $this = this,
@@ -197,7 +204,7 @@ $(function(){
 
     function pathMouseEnter(e){
       var index = $(this).data().order;
-      $tip.text(data[index].code + ": " + data[index].value).fadeIn(200);
+      $tip.text(data[index].title + ": " + data[index].value).fadeIn(200);
       if ($groups[index][0].getAttribute("data-active") !== "active"){
         $lightPies[index].animate({opacity: .8}, 180);
       }
@@ -302,6 +309,4 @@ $(function(){
   };
 })(jQuery);
 </script>
-
-        
-</body></html>
+</body>

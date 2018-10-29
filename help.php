@@ -10,13 +10,6 @@
                             <h1 class="layout-heading sr-only">Help</h1>
                             <div class="column-container">
                                 <div class="elcontent">
-                                    <div class='peer-support'>
-                                        <h3>Peer Support Timetable</h3>
-                                        <br>
-                                        <a href='https://blackboard.qut.edu.au/webapps/blackboard/content/listContent.jsp?course_id=_106041_1&content_id=_6012908_1'>STIMulate Resources</a>
-                                        <iframe width='100%' height='500px' src="https://stimulate.qut.edu.au/timetable#GardensPoint/IT" scrolling="yes"></iframe>
-                                        <br>
-                                    </div>
                                     <div class='support'>
                                         <h3>Get Help With:</h3>
                                         <br>

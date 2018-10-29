@@ -1,7 +1,10 @@
 <?
-include_once 'LLGET.php';
-include_once 'LL_functions.php';
+    
+$helpers = ['LLGET', 'LL_functions', 'Average_functions'];
 
+foreach ($helpers as $helper) {
+    include_once '_functions/'.$helper.'.php';
+}
 
 function pre_dump($var) {
     echo "<pre>";
@@ -138,4 +141,41 @@ function displayData($data) {
         echo "</tr>";
     }
     echo "</table>";
+}
+
+
+function pdoQuery($connection, $query = "SELECT * FROM external", $params = '') {
+    try {
+        $stmt = $connection->prepare($query); 
+        if ($params == '') $stmt->execute();
+        else $stmt->execute($params);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        $result = null;
+        die();
+    }
+    
+    return $result;
+}
+
+function input_field($errors, $name, $label, $type = 'text') {
+    echo '<div class="required_field">';
+    $value = posted_value($name);
+    echo "<input type=\"$type\" id=\"$name\" name=\"$name\" placeholder=\"$label\" value=\"$value\"/>"; 
+    errorLabel($errors, $name);
+    echo '</div>';
+}
+
+function posted_value($name) {
+    if(isset($_POST[$name]) && !empty($_POST[$name])) {
+      return htmlspecialchars($_POST[$name]);
+    } else return null;
+}
+
+function errorLabel($errors, $name) {
+    echo "<span class=\"$name error-message\">";
+    if (isset($errors[$name])) echo $errors[$name];
+    echo "</span>";
 }

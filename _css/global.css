@@ -2,6 +2,89 @@
     display: none;
 }
 
+h2 {
+    padding: 20px 0;
+}
+
+.grid .cell svg {
+  width: 100%;
+}
+
+section {
+    padding: 1em 0;
+}
+
+h3.portlet-title {
+    padding: 20px 0;
+}
+
+.elcontent > img {
+  width: 100%;
+  height: 650px;
+  object-fit: contain;
+}
+
+.prm {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  color: #000;
+  width: 30%;
+  padding: 5px 10px;
+  box-shadow: 0px 0px 5px 2px #555;
+}
+
+.prm .week-title {
+  background: #003C6C;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.prm .metric {
+  background: #ddd;
+  margin: 5px 0;
+}
+
+.popular, .checklist {
+    background: #fff;
+    border: 1px solid #aaa;
+}
+
+.popular .title, .checklist .title {
+  background: #003C6C;
+  color: #fff;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.popular .item, .checklist .item {
+    text-align: left;
+    box-sizing: border-box;
+    padding: 7px 7px;
+    border: 1px solid #aaa;
+}
+
+.popular.external .item > div {
+    padding: 3px;
+}
+
+.popular .item span, .checklist .item span {
+    margin-left: 10px;
+    background: #ddd;
+    color: #000;
+    padding: 3px 7px;
+}
+
+.checklist .item button {
+    margin-left: 10px;
+    background: #003C6C;
+    color: #fff;
+    padding: 3px 7px;
+    border: none;
+    box-shadow: 0px 0px 3px 1px #aaa;
+}
+
 #wrapper-container.show-menu > * { left: 250px }
 
 div.column-container {
@@ -37,16 +120,14 @@ footer div#acknowledgement h3 {
 
 div.elstatus {
 	text-align: center;
-    color: #eee;
+	position: relative;
+    color: #000;
     font-size: 1.1em;
+    border: solid 1px #d9def2;
+    background: #eee;
 }
 
-div.elstatus.risk { background: darkred; }
-div.elstatus.warning { background: goldenrod; }
-div.elstatus.good { background: forestgreen; }
-
 div.elcontent {
-    background: #eee;
     padding: 1em;
     display: flex;
     flex-direction: row;
@@ -57,21 +138,227 @@ div.elcontent {
 div.elcontent > div.chart {
 	margin: 1em 5%;
     flex-basis: 40%;
-    background: #000;
     height: 300px;
+}
+
+div.elcontent > div.cell {
+  flex-basis: 44%;
+  text-align: left;
 }
 
 iframe.chart {
     width: 100%;
+    height: 500px;
 }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+    .x.axis path {
+        display: none;
+    }
+    .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1px;
+    }
 
     svg {
         padding: 1em;
     }
     .half-donut .label {
-      font-size: 6rem;
+      font-size: 4rem;
     }
 
 div.elcontent .title {
     width: 100%;
 }
+
+#wrapper #com-menu {
+  margin-bottom: 0px;
+  float: none;
+}
+
+.bar1 { fill: aqua; }
+.bar2 { fill: deepskyblue; }
+.bar3 { fill: steelblue; }
+.bar:hover {fill: orange; }
+.axis--x path { display: none; }
+.line {
+    fill: none;
+    stroke: royalblue;
+    stroke-width: 3;
+}
+.dot {
+    fill: royalblue;
+    stroke: royalblue;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+  
+.legends5 {
+  float:left;
+  margin-right: 1em;
+}
+
+/***************STAR RATING*******************/
+
+fieldset, label { margin: 0; padding: 0; }
+
+  /****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  width: calc(28px*5);
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+@import url(//fonts.googleapis.com/css?family=Oswald:400);
+* {
+  margin: 0;
+  padding: 0;
+}
+.chart.pie {
+  width: 450px;
+  height: 450px;
+  margin: -225px 0 0 -225px;
+}
+
+.pieTip {
+  position: absolute;
+  float: left;
+  min-width: 30px;
+  max-width: 300px;
+  padding: 5px 18px 6px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.97);
+  color: #444;
+  font-size: 19px;
+  text-shadow: 0 1px 0 #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: .06em;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.5);
+  -webkit-transform: all .3s;
+     -moz-transform: all .3s;
+      -ms-transform: all .3s;
+       -o-transform: all .3s;
+          transform: all .3s;
+  pointer-events: none;
+}
+.pieTip:after {
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      content: "";
+      height: 0;
+      margin: 0 0 0 -6px;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-top: 6px solid rgba(255,255,255,.95);
+      line-height: 0;
+}
+.chart path { cursor: pointer; }
+
+
+.course-listing {
+    border-radius: 2px;
+    margin: 10px auto;
+    text-shadow: 1px 1px 0 rgba(255,255,255,.2);
+    text-align: center;
+    max-width: 1700px;
+    color: #6e6e6e;
+    padding: 5px 7px;
+}
+
+.course-listing .course-item {
+    display: inline-block;
+    position: relative;
+    width: 380px;
+    /*height: 140px;*/
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    margin: 2px 0px;
+    width: 100%;
+    cursor: pointer;
+    vertical-align: top;
+    text-align: left;
+    padding: 10px 10px 10px 130px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.course-listing .course-item .course-code {
+    text-transform: uppercase;
+    font-size: large;
+    color: #444;
+}
+
+.course-listing .course-item a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.course-item .course-video-count {
+    font-size: 11px;
+}
+
+.course-listing .course-item .badge {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 120px;
+    border-radius: 3px 0 0 3px;
+    box-sizing: border-box;
+}
+
+.badge {
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.shifts {
+    width: 50%;
+}
+
+  /***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+/***************************************************/

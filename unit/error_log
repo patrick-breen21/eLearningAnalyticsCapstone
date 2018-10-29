@@ -1,0 +1,24 @@
+[29-Oct-2018 01:19:20 UTC] PHP Warning:  include_once(/home/smallpro/public_html/capstone/auth.php): failed to open stream: No such file or directory in /home/smallpro/public_html/capstone/_includes/head.php on line 113
+[29-Oct-2018 01:19:20 UTC] PHP Warning:  include_once(): Failed opening '/home/smallpro/public_html/capstone/auth.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/smallpro/public_html/capstone/_includes/head.php on line 113
+[29-Oct-2018 01:19:20 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/header.php on line 151
+[29-Oct-2018 01:19:20 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/header.php on line 151
+[29-Oct-2018 01:19:20 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/nav.php on line 35
+[29-Oct-2018 01:22:25 UTC] PHP Warning:  include_once(/home/smallpro/public_html/capstone/auth.php): failed to open stream: No such file or directory in /home/smallpro/public_html/capstone/_includes/head.php on line 113
+[29-Oct-2018 01:22:25 UTC] PHP Warning:  include_once(): Failed opening '/home/smallpro/public_html/capstone/auth.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/smallpro/public_html/capstone/_includes/head.php on line 113
+[29-Oct-2018 01:22:25 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/header.php on line 151
+[29-Oct-2018 01:22:25 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/header.php on line 151
+[29-Oct-2018 01:22:25 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/nav.php on line 35
+[29-Oct-2018 01:23:27 UTC] PHP Warning:  include_once(/home/smallpro/public_html/capstone/auth.php): failed to open stream: No such file or directory in /home/smallpro/public_html/capstone/_includes/head.php on line 113
+[29-Oct-2018 01:23:27 UTC] PHP Warning:  include_once(): Failed opening '/home/smallpro/public_html/capstone/auth.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/smallpro/public_html/capstone/_includes/head.php on line 113
+[29-Oct-2018 01:23:27 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/header.php on line 151
+[29-Oct-2018 01:23:27 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/header.php on line 151
+[29-Oct-2018 01:23:27 UTC] PHP Notice:  Undefined index: user in /home/smallpro/public_html/capstone/_includes/nav.php on line 35
+[29-Oct-2018 01:31:12 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 01:31:25 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 01:31:42 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 01:32:02 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 04:16:39 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 04:23:36 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 04:28:47 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 04:30:31 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50
+[29-Oct-2018 06:34:19 UTC] PHP Notice:  Undefined variable: totalDuration in /home/smallpro/public_html/capstone/unit/form-logging.php on line 50

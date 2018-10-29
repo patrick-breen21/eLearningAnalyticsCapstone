@@ -1,0 +1,287 @@
+/* @override 
+	https://qutvirtual4dev.qut.edu.au/enrolment/css/enrolment-0.1.css?* */
+
+
+/*-----------------------------------------------------------+
+|  Enrolment Portlet Stylesheet - enrolment.css
+|
+|  Purpose: Specific CSS styles for enrolment portlet
+|  Version: 3.0.4
+|  Date Last Updated: 28/05/2018 by Erik Veland
++-----------------------------------------------------------*/
+#enrolment-guide .enrolment-list {
+	display: none;
+	margin-bottom: 10px;
+}
+#enrolment-guide .enrolment-list li {
+	border-bottom: 1px solid #c7c7c7;
+	padding: 10px;
+	position: relative;
+}
+#enrolment-guide .enrolment-list li:first-child {
+	padding: 0 10px 10px;
+}
+#enrolment-guide .enrolment-list .done .checkbox .fa {
+	color: gray;
+}
+#enrolment-guide .enrolment-list li .step-list-wrapper {
+	float: left;
+	width: calc(100% - 70px);
+	position: relative;
+}
+#enrolment-guide .enrolment-list li .step-list {
+	float: none;
+	line-height: 1.9em;
+	font-size: 1.1em;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	position: relative;
+}
+#enrolment-guide .enrolment-list li .step-list:hover {
+	text-decoration: none;
+}
+#enrolment-guide .enrolment-list li .step-list .step-no {
+	background-color: #008b82;
+	color: #fff;
+	display: inline-block;
+	float: left;
+	font-size: 1.1em;
+	font-weight: bold;
+	line-height: 40px;
+	margin-right: 15px;
+	text-align: center;
+	text-decoration: none;
+	width: 40px;
+	vertical-align: middle;
+	border-radius: 3px;
+}
+
+#enrolment-guide .enrolment-list li .step-list .step-text,
+#enrolment-guide .enrolment-list li .step-list .step-estu {
+	position: relative;
+	top: 5px;
+	font-weight: 100;
+}
+#enrolment-guide .enrolment-list li .step-list.disabled .step-text,
+#enrolment-guide .enrolment-list li .step-list.disabled .step-estu {
+	top: 3px;
+}
+#enrolment-guide .enrolment-list li .step-list .label-important {
+	display: inline-block;
+	font-size: 0.8em;
+	margin-top: 3px;
+	position: relative;
+	top: 2px;
+}
+#enrolment-guide .enrolment-list li .step-list .step-estu {
+	padding-left: 5px;
+	white-space: nowrap;
+}
+#enrolment-guide .enrolment-list li .step-list:hover .step-text {
+	text-decoration: underline;
+}
+#enrolment-guide .enrolment-list li .step-list.disabled:hover .step-text {
+	text-decoration: none;
+}
+#enrolment-guide .enrolment-list li .step-list .step-estu,
+#enrolment-guide .enrolment-list li .step-list:hover .step-estu {
+	color: #666 !important;
+	text-decoration: none !important;
+}
+#enrolment-guide .enrolment-list li:hover {
+	/*background-color: #ecf2f8;*/
+	text-decoration: none;
+}
+#enrolment-guide .enrolment-list li .step-list .step-no,
+#enrolment-guide .enrolment-list li .step-list:hover .step-no,
+#enrolment-guide .enrolment-list li .step-list:hover .text-muted {
+	text-decoration: none;
+}
+#enrolment-guide .enrolment-list li .checkbox {
+	display: block;
+	float: right;
+	line-height: 40px;
+	margin: 0;
+	padding: 0 !important;
+	position: relative;
+	z-index: 100;
+}
+#enrolment-guide .enrolment-list li .checkbox > label {
+	margin: 0;
+	padding: 0 20px;
+	position: relative;
+}
+#enrolment-guide .enrolment-list li .checkbox input {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#enrolment-guide .enrolment-list li .checkbox input[type="checkbox"] {
+	display: none;
+}
+#enrolment-guide .checkbox .fa {
+	color: #999;
+	cursor: pointer;
+	font-size: 2em;
+	font-weight: normal;
+	left: 7px;
+	position: absolute;
+	top: 11px;
+}
+
+#enrolment-guide .checkbox .fa.green-text {
+	color: #008b82 !important;
+}
+
+#enrolment-guide .enrolment-help {
+	margin-bottom: 0;
+}
+#enrolment-guide .enrolment-help li {
+	float: left;
+	position: relative;
+	width: 49%;
+}
+
+#enrolment-guide .enrolment-help.new-student li {
+	float: left;
+	position: relative;
+	width: 100% !important;
+	margin-bottom: 10px;
+}
+@media (max-width: 599px) {
+	#enrolment-guide .enrolment-help li {
+		float: none;
+		margin-bottom: 2%;
+		margin-right: 0;
+		position: relative;
+		width: 100%;
+	}
+}
+#enrolment-guide .enrolment-help li:first-child {
+ 	margin-right: 2%;
+}
+#enrolment-guide .enrolment-help li:before {
+	content: "\f02d";
+	display: block;
+	font-family: FontAwesome;
+	left: 0;
+	position: absolute;
+	background-color: #047;
+	width: 58px;
+	height: 58px;
+	color: #fff;
+	text-align: center;
+	line-height: 58px;
+	font-size: 2em;
+}
+
+#enrolment-guide .enrolment-help li.uni-prep:before {
+	content: "\f02d";
+	display: block;
+	font-family: FontAwesome;
+	left: 0;
+	position: absolute;
+	background-color: #047;
+	width: 58px;
+	height: 58px;
+	color: #fff;
+	text-align: center;
+	line-height: 58px;
+	font-size: 2em;
+}
+
+#enrolment-guide .enrolment-help li.online-tools:before {
+	content: "\f02d";
+	display: block;
+	font-family: FontAwesome;
+	left: 0;
+	position: absolute;
+	background-color: #047;
+	width: 58px;
+	height: 58px;
+	color: #fff;
+	text-align: center;
+	line-height: 58px;
+	font-size: 2em;
+}
+
+#enrolment-guide a.more-info {
+	color: #047;
+	float: none;
+	font-weight: bold;
+	font-size: 1.5em;
+	position: absolute;
+	right: 50px;
+	top: 14px;
+}
+
+#enrolment-guide .enrolment-list li:first-child a.more-info:first-of-type {
+	top: 4px;
+}
+
+#enrolment-guide .enrolment-help li a {
+	background-color: #f3f6f9;
+	color: #333;
+	display: block;
+	line-height: 1.2em;
+	padding-left: 70px;
+	padding-top: 12px;
+	padding-bottom: 13px;
+	text-decoration: none;
+}
+
+#enrolment-guide .enrolment-help.new-student li a {
+	padding-bottom: 0px !important;
+	padding-top: 9px !important;
+}
+#enrolment-guide .enrolment-help li a:hover {
+	background-color: #ecf2f8;
+    -webkit-transition: background-color 250ms linear;
+    -moz-transition: background-color 250ms linear;
+    -o-transition: background-color 250ms linear;
+    -ms-transition: background-color 250ms linear;
+    transition: background-color 250ms linear;
+	text-decoration: underline;
+}
+#enrolment-guide .enrolment-help li a:after {
+	color: #333;
+	content: "\f054";
+	font-family: FontAwesome;
+	font-size: 1.6em;
+	padding-left: 10px;
+	position: absolute;
+	top: 22px;
+	right: 15px;
+}
+#enrolment-guide .tooltip.in {
+	opacity: 1 !important;
+}
+#enrolment-guide .enrolment-steps {
+	margin-left: 40%;
+	margin-bottom: 10px;
+}
+
+#enrolment-guide .enrolment-info {
+	color: #707070;
+	display: block;
+	padding-top: 8px;
+	line-height: 1.5em;
+	clear: both;
+	padding-left: 55px;
+	padding-right: 70px;
+	font-size: .9em;
+}
+
+#enrolment-guide a.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+@media (max-width: 480px) {
+	#enrolment-guide .enrolment-list li .step-list {
+		width: 80% !important;
+	}
+}
+

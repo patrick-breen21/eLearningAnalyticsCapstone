@@ -1,20 +1,33 @@
 <?php
-	// Connects to the database
-	// Note: this file contains the password and must not be revealed
+  //phpinfo();
+/*
+	$host = 'wsh1-2e-syd.hostyourservices.net';
+	$dbname = 'smallpro_capstone';
+	$user = 'smallpro_ifb398';
+	$pass = 'o>w8E?J7cxYM';
 
-	// mysqli
-	$hostname = "wsh1-2e-syd.hostyourservices.net";
-	$user = "smallpro_ifb398";
-	$password = "o>w8E?J7cxYM";
-	$database = "smallpro_capstone";
+	//$conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass);
+	//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	
+try{
+	$conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}catch(PDOException  $e ){
+  $conn = null;
+  echo "Error: ".$e;
+}
 
-	$mysqli = new mysqli($hostname, $user, $password, $database);
+var_dump($conn);
+*/
+?>
 
-	// check connection
-	if (mysqli_connect_errno())
-	{
-	    printf("Connect failed: %s\n", mysqli_connect_error());
-	    exit();
-	}
+<?php
 
+	$host = 'wsh1-2e-syd.hostyourservices.net';
+	$dbname = 'smallpro_capstone';
+	$user = 'smallpro_ifb398';
+	$pass = 'o>w8E?J7cxYM';
+
+	$conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass);
+	//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>

@@ -1,2 +1,2 @@
-# eLearning_Analytics_Capstone-
-Capstone Project 2018 
+# Learning_Analytics_Capstone
+Capstone Project 2018

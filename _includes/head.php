@@ -9,8 +9,9 @@ $dev = false;
 
 <html class="no-js webkit safari safari0 js gr__smallprojects_info" dir="ltr" lang="en"><!--<![endif]-->
 <head>
+    <base href="<?=$site_url?>">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-    <link href="./qut-home_files/css" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/css" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         .gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}
     </style>
@@ -66,36 +67,24 @@ $dev = false;
     <!-- For desktop and all other devices -->
     <link href="https://qutvirtual4.qut.edu.au/looking-glass-student-theme/images/custom/template/favicon.ico" rel="Shortcut Icon"/>
 
-    <script src="./qut-home_files/jquery-2.1.4.min.js" type="text/javascript">
-    </script>
-    <!--[if lt IE 9]>
-<script type="text/javascript" src="/html/lg/js/jquery-1.11.3.min.js"></script><![endif]-->
-    <script src="./qut-home_files/jquery-migrate-1.2.1.min.js" type="text/javascript">
-    </script>
-    <script src="./qut-home_files/jquery-ui.1.11.4.min.js" type="text/javascript">
-    </script>
-    <script src="./qut-home_files/bootstrap.3.3.5.min.js" type="text/javascript">
-    </script>
-    <script src="./qut-home_files/jquery.js" type="text/javascript">
-    </script>
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" rel="stylesheet"/>
-    <link href="./qut-home_files/main.css" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/main.css" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         #banner .logo a{background:url(/image/company_logo?img_id=11144&amp;t=1526757130118) no-repeat;display:block;font-size:0;height:52px;text-indent:-9999em;width:300px;}
     </style>
     <!--[if IE 8]>  <link rel="stylesheet" media="all" type="text/css" href="/looking-glass-student-theme/css/ie.css" />    <![endif]-->
     <!--[if gte IE 9]>  <style type="text/css">#header-search form{filter:none!important;background:#fff!important;}</style><![endif]-->
-    <link href="./qut-home_files/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/exception.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/469.min.css" media="screen and (max-width: 469px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/470x529.min.css" media="screen and (min-width: 470px) and (max-width: 529px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/530x699.min.css" media="screen and (min-width: 530px) and (max-width: 699px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/700x949.min.css" media="screen and (min-width: 700px) and (max-width: 949px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/950x1169.min.css" media="screen and (min-width: 950px) and (max-width: 1169px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/1170x1189.min.css" media="screen and (min-width: 1170px) and (max-width: 1189px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/1410-above.min.css" media="screen and (min-width: 1410px)" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/qut.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="./qut-home_files/print.css" media="print" rel="stylesheet" type="text/css"/>
+    
+    <link href="qut-home_files/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/exception.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/469.min.css" media="screen and (max-width: 469px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/470x529.min.css" media="screen and (min-width: 470px) and (max-width: 529px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/530x699.min.css" media="screen and (min-width: 530px) and (max-width: 699px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/700x949.min.css" media="screen and (min-width: 700px) and (max-width: 949px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/950x1169.min.css" media="screen and (min-width: 950px) and (max-width: 1169px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/1170x1189.min.css" media="screen and (min-width: 1170px) and (max-width: 1189px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/1410-above.min.css" media="screen and (min-width: 1410px)" rel="stylesheet" type="text/css"/>
+    <link href="qut-home_files/qut.css" media="all" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         .gm-style {
     font: 400 11px Roboto, Arial, sans-serif;
@@ -105,7 +94,13 @@ $dev = false;
     </style>
 
     <!-- OUR HEAD STUFF -->
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
     <script src="//d3js.org/d3.v3.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>-->
+
     <script type="text/javascript" src="_scripts/script.js"></script>
     <link href="https://fastcdn.org/Font-Awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet"                                                  href="_css/global.css"/><!-- global.css -->
@@ -116,8 +111,24 @@ $dev = false;
 </head>
 
 <?php
-include_once 'functions.php';
+include_once "{$root}/functions.php";
+include_once "{$root}/_database/connect.php";
 //var_dump($_SESSION['user']);
 if (!isset($_SESSION['user'])) {
-    include_once 'auth.php';
+    include_once "{$root}/login/auth.php";
 }
+
+$units = [];
+
+$units['ifb101'] = ['code' => 'ifb101', 'title' => 'Impact of IT', 'skills' => [] ];
+$units['ifb102'] = ['code' => 'ifb102', 'title' => 'Computer Technology Fundementals', 'skills' => [16] ];
+$units['ifb103'] = ['code' => 'ifb103', 'title' => 'Designing for IT', 'skills' => [] ];
+$units['ifb104'] = ['code' => 'ifb104', 'title' => 'Building IT Systems', 'skills' => [21] ];
+$units['ifb130'] = ['code' => 'ifb130', 'title' => 'Database Management', 'skills' => [20, 86] ];
+$units['cab201'] = ['code' => 'cab201', 'title' => 'Programming Principles', 'skills' => [4] ];
+$units['cab202'] = ['code' => 'cab202', 'title' => 'Microprocessors and Digital Systems', 'skills' => [5, 70] ];
+$units['cab230'] = ['code' => 'cab230', 'title' => 'Web Computing', 'skills' => [8, 9, 12, 15, 19, 20] ];
+$units['cab240'] = ['code' => 'cab240', 'title' => 'Information Security', 'skills' => [] ];
+$units['cab302'] = ['code' => 'cab302', 'title' => 'Software Development', 'skills' => [11] ];
+$units['cab340'] = ['code' => 'cab340', 'title' => 'Cryptography', 'skills' => [7] ];
+$units['cab432'] = ['code' => 'cab432', 'title' => 'Cloud Computing', 'skills' => [12, 8, 9, 19] ];

@@ -17,27 +17,7 @@
                                                     </div>
                                                     <li class="menu-home selected">
                                                         <a href="index.php">
-                                                            Home
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-page2">
-                                                        <a href="llecho.php">
-                                                            Echo Data
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-page1">
-                                                        <a href="page1.php">
-                                                            Assessment Analytics
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-charts">
-                                                        <a href="charts.php">
-                                                            Charts
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-page4">
-                                                        <a href="adddata.php">
-                                                            Add Data
+                                                            Dashboard
                                                         </a>
                                                     </li>
                                                     <li class="menu-page5">
@@ -45,8 +25,13 @@
                                                             Help
                                                         </a>
                                                     </li>
+                                                    <li class="menu-page4">
+                                                        <a href="adddata.php">
+                                                            Add Data
+                                                        </a>
+                                                    </li>
                                                     <li class="menu-logout">
-                                                        <a href="logout.php">
+                                                        <a href="login/logout.php">
                                                             Logout <?php echo $_SESSION['user']['username']; ?>
                                                         </a>
                                                     </li>
