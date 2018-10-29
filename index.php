@@ -17,14 +17,6 @@ foreach($_SESSION['user']['units'] as $index=>$unitCode) {
 
 ?>
 
-<?php
-    
-function getUnitTime($arr) {
-  return($arr['value']);
-}
-
-?>
-
 <body class=" controls-visible private-page ${intranet-demo} student Current Student en group-id-16731135 page-id-16787600 portlet-type " id="student-theme" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
         <div id="wrapper-container">
             <?php include('_includes/header.php'); ?>            

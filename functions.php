@@ -12,6 +12,10 @@ function pre_dump($var) {
     echo "</pre>";
 }
 
+function getUnitTime($arr) {
+  return($arr['value']);
+}
+
 
 function csvget($filename)
 {

@@ -14,6 +14,7 @@
     
 ?>
 <div class="elstatus <?php echo $statuses[$status]['class']; ?>">
+    <div class='heading'><h4>Risk Factor</h4></div>
     <div class='signal-chart'><?= $percentage ?></div>
     <div class='txt'><?php echo $statuses[$status]['txt']; ?></div>
     <!--div class='prm'>

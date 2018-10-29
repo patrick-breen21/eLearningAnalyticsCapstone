@@ -1,5 +1,5 @@
 <?php include('_includes/head.php') ?>
-<body class=" controls-visible private-page ${intranet-demo} student Current Student en group-id-16731135 page-id-16787600 portlet-type " id="student-theme" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+<body class=" controls-visible private-page student Current Student en page-id-16787600 portlet-type " id="student-theme">
         <div id="wrapper-container">
             <?php include('_includes/header.php'); ?>            
             <div id="wrapper">
@@ -11,10 +11,10 @@
                             <div class="column-container">
                                 <div class="elcontent">
                                     <div class='support'>
-                                        <h3>Get Help With:</h3>
+                                        <h3>Get Help With</h3>
                                         <br>
                                         <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/studying-effectively'>Studying Effectively</a></p>
-                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/researching-and-notetaking'>Researching & Notetaking</a></p>
+                                        <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/researching-and-notetaking'>Researching & Note-taking</a></p>
                                         <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/exams'>Preparing for Exams</a></p>
                                         <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/classes-and-readings'>Classes and Readings</a></p>
                                         <p><a href='https://qutvirtual4.qut.edu.au/group/student/study/assignments'>Assignments</a></p>
